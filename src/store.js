@@ -6,7 +6,7 @@ import { protectedDataReducer } from './reducers/protected-data'
 export default createStore(
   combineReducers({
     form: formReducer,
-    authReducer,
-    protectedDataReducer
+    auth: authReducer,
+    protectedData: protectedDataReducer
   })
 );
