@@ -4,6 +4,10 @@ import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 
 export class Dashboard extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchProtectedData())
+  }
+
   render() {
     return (
       <div className="dashboard">
@@ -22,10 +26,10 @@ export class Dashboard extends Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    username: currentUser.username,
+    username: state.auth.currentUser.username,
     name: currentUser.fullname,
     protectedData: state.protectedData.data
   };
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
