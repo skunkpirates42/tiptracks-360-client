@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import reducer from './reducers/index';
+import { authReducer } from './reducers/auth';
 
 export default createStore(
   combineReducers({
     form: formReducer,
-    reducer
+    authReducer
   })
 );
