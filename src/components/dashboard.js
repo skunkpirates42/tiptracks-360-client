@@ -25,9 +25,10 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
+  console.log(currentUser)
   return {
-    username: state.auth.currentUser.username,
-    name: currentUser.fullname,
+    username: currentUser.username,
+    name: currentUser.fullName,
     protectedData: state.protectedData.data
   };
 }
