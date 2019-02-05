@@ -7,7 +7,7 @@ import store from './store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-// temp for prod
+// temp for dev
 import AddTipsForm from './components/add-tips-form';
 
 ReactDOM.render(
