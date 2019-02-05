@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
+import { required, nonEmpty } from '../validators';
 import './login.css';
 
 export class LoginForm extends Component {
@@ -34,6 +35,7 @@ export class LoginForm extends Component {
             type="text"
             id="username"
             name="username"
+            validate={[required, nonEmpty]}
           />
           <label htmlFor="password">Password</label>
           <Field 
@@ -41,6 +43,7 @@ export class LoginForm extends Component {
             type="password" 
             id="password"
             name="password"
+            validate={[required, nonEmpty]}
           />
           <button disabled={this.props.pristine || this.props.submitting}>Submit</button>
         </form>

@@ -3,7 +3,10 @@ import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users.js';
 import { login } from '../actions/auth';
+import { required, nonEmpty, matches, length, isTrimmed } from '../validators'
 import './login.css';
+const passwordLength = length({min: 10, max: 72});
+const matchesPassword = matches('password')
 
 export class RegistrationForm extends Component {
   onSubmit(values) {
@@ -28,6 +31,7 @@ export class RegistrationForm extends Component {
             type="text"
             id="username"
             name="username"
+            validate={[required, nonEmpty, isTrimmed]}
           />
           <label htmlFor="password">Password</label>
           <Field 
@@ -35,12 +39,14 @@ export class RegistrationForm extends Component {
             type="password" 
             id="password"
             name="password"
+            validate={[required, passwordLength, isTrimmed]}
           />
           <label htmlFor="password">Confirm Password</label>
           <Field
             component={Input}
             type="password"
             name="passwordConfirm"
+            validate={[required, nonEmpty, matchesPassword]}
           />
           <button type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
         </form>
