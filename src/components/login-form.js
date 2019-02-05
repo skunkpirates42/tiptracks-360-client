@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
 import './login.css';
@@ -28,14 +29,14 @@ export class LoginForm extends Component {
           {error}
           <label htmlFor="username">Username</label>
           <Field 
-            component="input" 
+            component={Input} 
             type="text"
             id="username"
             name="username"
           />
           <label htmlFor="password">Password</label>
           <Field 
-            component="input" 
+            component={Input} 
             type="password" 
             id="password"
             name="password"
