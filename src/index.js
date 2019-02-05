@@ -7,11 +7,15 @@ import store from './store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+// temp for prod
+import AddTipsForm from './components/add-tips-form';
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <AddTipsForm />
+    {/* <Router>
       <App />
-    </Router>
+    </Router> */}
   </Provider>
   , document.getElementById('root')
 );

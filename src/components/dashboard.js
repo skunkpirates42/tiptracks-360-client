@@ -12,12 +12,18 @@ export class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="dashboard-username">
-          Username: {this.props.username}
+          <h2>Hello {this.props.username}</h2>
         </div>
         <div className="dashboard-name">Name: {this.props.name}</div>
         <div className="dashboard-protected-data">
           Protected Data: {this.props.protectedData}
         </div>
+        <button onClick={() => console.log('Add btn clicked')}> 
+        {/* {
+          !this.props.jobs ? 'Add A Job' : 'Add Your Tips'
+        } */}
+        Add Your Tips</button>
+        <button onClick={() => console.log('view btn clicked')}>View your stats</button>
       </div>
     );
   }
@@ -25,7 +31,7 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log(currentUser)
+  // console.log(currentUser)
   return {
     username: currentUser.username,
     name: currentUser.fullName,

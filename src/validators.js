@@ -13,3 +13,4 @@ export const matches = field => (value, allValues) =>
   field in allValues && value.trim() === allValues[field].trim()
   ? undefined
   : 'Does not match';
+export const isNumber = value => !(isNaN(value)) ? undefined : 'Must be a number';
