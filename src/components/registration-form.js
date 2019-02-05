@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
+import { registerUser } from '../actions/users.js';
 import { login } from '../actions/auth';
 import './login.css';
 
-export class LoginForm extends Component {
+export class RegistrationForm extends Component {
   onSubmit(values) {
-    const { username, password } = values
-    return this.props.dispatch(login(username, password));
-  }
+    const {username, password, fullName} = values;
+    const user = {username, password, fullName};
+    return this.props
+        .dispatch(registerUser(user))
+        .then(() => this.props.dispatch(login(username, password)));
+}
 
   render() {
-    let error;
-    // Set error to be a div that displays the error passed in from redux-form's props 
-    if (this.props.error) {
-      error = (
-        <div className="form-error" aria-live="polite">
-          {this.props.error}
-        </div>
-      )
-    }
-
     return (
       <div>
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          {error}
+          <label htmlFor="fullName">Full Name</label>
+          <Field component={Input} type="text" name="fullName"/>
           <label htmlFor="username">Username</label>
           <Field 
             component={Input} 
@@ -41,7 +36,13 @@ export class LoginForm extends Component {
             id="password"
             name="password"
           />
-          <button disabled={this.props.pristine || this.props.submitting}>Submit</button>
+          <label htmlFor="password">Confirm Password</label>
+          <Field
+            component={Input}
+            type="password"
+            name="passwordConfirm"
+          />
+          <button type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
         </form>
       </div>
     )
@@ -49,6 +50,7 @@ export class LoginForm extends Component {
 }
 
 export default reduxForm({
-  form: 'login',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LoginForm);
+  form: 'registration',
+  onSubmitFail: (errors, dispatch) =>
+      dispatch(focus('registration', Object.keys(errors)[0]))
+})(RegistrationForm);

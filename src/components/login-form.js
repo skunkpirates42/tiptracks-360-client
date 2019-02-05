@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
@@ -43,6 +44,7 @@ export class LoginForm extends Component {
           />
           <button disabled={this.props.pristine || this.props.submitting}>Submit</button>
         </form>
+        <Link to="/register">Register</Link>
       </div>
     )
   } 

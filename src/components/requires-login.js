@@ -17,7 +17,7 @@ export default () => Component => {
 
   }
 
-  const displayName = Component.displayNAme || Component.name || 'Component';
+  const displayName = Component.displayName || Component.name || 'Component';
   RequiresLogin.displayName = `RequiresLogin(${displayName})`;
 
   const mapStateToProps = state => {
