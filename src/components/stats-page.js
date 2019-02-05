@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+// import requiresLogin from './requires-login';
 
 export class StatsPage extends Component {
   state = {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
+import { NavLink } from 'react-router-dom';
 
 export class Dashboard extends Component {
   componentDidMount() {
@@ -18,12 +19,12 @@ export class Dashboard extends Component {
         <div className="dashboard-protected-data">
           Protected Data: {this.props.protectedData}
         </div>
-        <button onClick={() => console.log('Add btn clicked')}> 
+        <NavLink to="/add-tips"><button onClick={() => console.log('Add btn clicked')}> 
         {/* {
           !this.props.jobs ? 'Add A Job' : 'Add Your Tips'
         } */}
-        Add Your Tips</button>
-        <button onClick={() => console.log('view btn clicked')}>View your stats</button>
+        Add Your Tips</button></NavLink>
+        <NavLink to="/stats"><button >View your stats</button></NavLink>
       </div>
     );
   }
