@@ -4,6 +4,7 @@ import {Route, withRouter} from 'react-router-dom';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
+import StatsPage from './stats-page';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/stats" component={StatsPage} />
       </div>
     );
   }
