@@ -3,7 +3,7 @@ import Input from './input';
 import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 import { Field, reduxForm, focus } from 'redux-form';
-import { saveTips } from '../actions/add-tips';
+import { saveTips } from '../actions/tips';
 import { required, isNumber } from '../validators';
 import './add-tips-form.css'
 

@@ -1,4 +1,4 @@
-import { FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR} from  '../actions/add-tips'
+import { FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR} from  '../actions/tips'
 
 const initialState = {
   tips: [],

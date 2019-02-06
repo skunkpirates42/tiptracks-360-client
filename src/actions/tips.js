@@ -17,7 +17,7 @@ export const fetchTipsDataError = (error) => ({
 export const saveTips = newReport => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return (
-    fetch(`${API_BASE_URL}/dailyreports`, {
+    fetch(`${API_BASE_URL}/tips/`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -39,7 +39,7 @@ export const saveTips = newReport => (dispatch, getState) => {
 
 export const fetchTipsData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/dailyreports`, {
+  return fetch(`${API_BASE_URL}/tips/`, {
     method: 'GET',
     headers: {
       // Provide our auth token as creds

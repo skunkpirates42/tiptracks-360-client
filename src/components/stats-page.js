@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchTipsData } from '../actions/add-tips';
+import { fetchTipsData } from '../actions/tips';
 
 export class StatsPage extends Component {
   state = {
