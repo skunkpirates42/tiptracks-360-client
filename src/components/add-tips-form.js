@@ -6,6 +6,9 @@ import './add-tips-form.css'
 
 export class AddTipsForm extends Component {
   onSubmit(values) {
+    // Dispatch an async action that will send a fetch
+    // request off the the /api/dailyreports endpoint
+    // with the data from the form
     console.log(values)
 }
 

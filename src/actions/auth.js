@@ -40,7 +40,7 @@ const storeAuthInfo = (authToken, dispatch) => {
   localStorage.setItem('authToken', authToken);
 }
 
-export const login = (username, password) => dispatch => {
+export const login = (username, password) => dispatch => {  
   dispatch(authRequest());
   return (
     fetch(`${API_BASE_URL}/auth/login`, {

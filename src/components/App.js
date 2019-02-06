@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/stats" component={StatsPage} />
-          <Route exact path="/add-tips" component={AddTipsForm} />s
+          <Route exact path="/add-tips" component={() => <AddTipsForm />} />
         </Switch>
       </div>
     );
