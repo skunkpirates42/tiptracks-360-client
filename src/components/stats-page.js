@@ -11,7 +11,7 @@ export class StatsPage extends Component {
 
     return (
       <div>
-        <h2>Stats for {this.props.username || 'johndoe'}</h2>
+        <h2>Stats for {this.props.username ? this.props.username : 'johndoe'}</h2>
         <button onClick={() => this.setState({view: 'daily'})}>daily</button>
         <button onClick={() => this.setState({view: 'weekly'})}>weekly</button>
         <button onClick={() => this.setState({view: 'monthly'})}>monthly</button>
@@ -27,7 +27,7 @@ export class StatsPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  username: state.auth.username
+  username: state.auth.currentUser.username
 })
 
 export default connect(mapStateToProps)(StatsPage)

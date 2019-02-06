@@ -15,7 +15,7 @@ export const saveTips = newReport => dispatch => {
         console.error(err.message);
         return Promise.reject(
           new SubmissionError({
-            error: err.message
+            _error: err.message
           })
         );
       })
