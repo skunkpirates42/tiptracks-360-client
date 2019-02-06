@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './input';
+import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 import { Field, reduxForm, focus } from 'redux-form';
 import { saveTips } from '../actions/add-tips';
@@ -64,8 +65,8 @@ const mapStateToProps = state => ({
 
 const mappedComponent = connect(mapStateToProps)(AddTipsForm);
 
-export default reduxForm({
+export default requiresLogin()(reduxForm({
   form: 'add-tips',
   // onSubmitFail: (errors, dispatch) =>
   //     dispatch(focus('add-tips', Object.keys(errors)[0]))
-})(mappedComponent);
+})(mappedComponent));
