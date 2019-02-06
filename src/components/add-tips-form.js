@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
-import { required, isNumber } from '../validators'
+import { saveTips } from '../actions/add-tips';
+import { required, isNumber } from '../validators';
 import './add-tips-form.css'
 
 export class AddTipsForm extends Component {
   onSubmit(values) {
-    // Dispatch an async action that will send a fetch
-    // request off the the /api/dailyreports endpoint
-    // with the data from the form
-    console.log(values)
+    const { baseWage, hours, notes, tippedOut, totalTips } = values
+    const { dispatch } = this.props;
+    const newReport = { baseWage, hours, notes, tippedOut, totalTips }
+    return dispatch(saveTips(newReport));
 }
 
   render() {
