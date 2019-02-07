@@ -11,6 +11,7 @@ export class AddTipsForm extends Component {
     const { date, baseWage, hours, notes, tippedOut, totalTips } = values
     const { dispatch } = this.props;
     const newReport = { date, baseWage, hours, notes, tippedOut, totalTips }
+    console.log(values)
     return dispatch(saveTips(newReport));
     // Trying to redirect to stats page ...
     // .then(() => this.props.history.push('/stats'));

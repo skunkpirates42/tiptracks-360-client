@@ -21,6 +21,7 @@ export class HeaderBar extends React.Component {
     return (
       <header className="app-header">
         <h1>Tiptracks 360</h1>
+        <h3>Giving you all around insight int your tips</h3>
         { logOutButton }
       </header>
     );
