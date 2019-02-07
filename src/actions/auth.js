@@ -1,7 +1,9 @@
 import jwtDecode from 'jwt-decode';
 import { SubmissionError } from 'redux-form';
 
-import { API_BASE_URL } from '../config'
+import { API_BASE_URL } from '../config';
+import {normalizeResponseErrors} from './utils';
+
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -53,6 +55,7 @@ export const login = (username, password) => dispatch => {
         password
         })
     })
+      .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
       .then(({authToken}) => storeAuthInfo(authToken, dispatch))
       .catch(err => {

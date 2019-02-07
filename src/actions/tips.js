@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
+import {normalizeResponseErrors} from './utils';
  
 export const FETCH_TIPS_DATA_SUCCESS = 'FETCH_TIPS_DATA_SUCCESS';
 export const fetchTipsDataSuccess = (tips) => ({
@@ -25,6 +26,7 @@ export const saveTips = newReport => (dispatch, getState) => {
       },
       body: JSON.stringify(newReport)
     })
+      .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
       .catch(err => {
         console.error(err.message);
