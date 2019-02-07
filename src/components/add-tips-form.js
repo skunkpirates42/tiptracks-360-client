@@ -9,10 +9,13 @@ import './add-tips-form.css'
 
 export class AddTipsForm extends Component {
   onSubmit(values) {
+    // DONT USE USER ID HERE DO IT ON SERVER req.user.id
     const { baseWage, hours, notes, tippedOut, totalTips } = values
     const { dispatch, userId } = this.props;
     const newReport = { baseWage, hours, notes, tippedOut, totalTips, userId }
     return dispatch(saveTips(newReport));
+    // Trying to redirect to stats page ...
+    // .then(() => this.props.history.push('/stats'));
 }
 
   render() {

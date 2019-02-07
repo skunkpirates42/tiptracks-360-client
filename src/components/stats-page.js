@@ -15,12 +15,13 @@ export class StatsPage extends Component {
   render() {
     const tips = this.props.tips.map((tip) => {
       return (
-      <li key={tip.id}>
-         <p name="tips">Total Tips: <span>{tip.totalTips}</span></p>
+        <li key={tip.id}>
+          <p name="tips">Total Tips: <span>{(tip.totalTips - tip.tippedOut)}</span></p>
           <p name="tips">Total Hours: <span>{tip.hours}</span></p>          
           <p name="tips">Hourly Rate: <span>${(tip.totalTips / tip.hours).toFixed(2)} / hr</span></p>
           <p name="notes">Notes: <span>{tip.notes}</span></p>
-      </li>)
+        </li>
+      )
     });
     
     return (

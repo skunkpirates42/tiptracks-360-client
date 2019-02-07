@@ -28,7 +28,8 @@ export const authReducer = (state = initialState, action) => {
   } else if (action.type === AUTH_REQUEST) {
     return {
       ...state,
-      loading: true
+      loading: true,
+      error: null
     }
   } else if (action.type === AUTH_SUCCESS) {
     return {

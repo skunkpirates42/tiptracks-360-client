@@ -9,7 +9,8 @@ import './login.css';
 export class LoginForm extends Component {
   onSubmit(values) {
     const { username, password } = values
-    return this.props.dispatch(login(username, password));
+    let result = this.props.dispatch(login(username, password));
+    return result;
   }
 
   render() {
