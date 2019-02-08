@@ -5,7 +5,7 @@ import { registerUser } from '../actions/users.js';
 import { login } from '../actions/auth';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators'
 import './login.css';
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password')
 
 export class RegistrationForm extends Component {

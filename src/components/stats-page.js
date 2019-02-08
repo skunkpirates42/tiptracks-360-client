@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import { fetchTipsData } from '../actions/tips';
 import moment from 'moment'
 import './stats-page.css'
-// console.log(moment('2019-02-07')) 
 
 export class StatsPage extends Component {
   state = {
