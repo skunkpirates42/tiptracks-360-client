@@ -18,21 +18,42 @@ export class StatsPage extends Component {
     return moment(date).format('dddd, MMMM Do YYYY');
   }
 
+  calcHourlyRate (takeHomeTips, hours, baseWage) {
+
+    // Validate - we don't want to do  JS math with anything but numbers
+    if (!Number.isNaN(hours)) {
+      hours = Number(hours)
+    }
+    
+    if (!Number.isNaN(takeHomeTips)) {
+      takeHomeTips = Number(takeHomeTips)
+    } 
+
+    if (!Number.isNaN(baseWage)) {
+      baseWage = Number(baseWage)
+    }
+
+    return (takeHomeTips / hours) + baseWage;
+    
+  }
+
   render() {
 
     const tips = this.props.tips.map((tip) => {
-
-      const formattedDate = this.genereteFormattedDate(tip.date);
-      const takeHomeTips = tip.totalTips - tip.tippedOut;
-      const hourlyRate = (takeHomeTips / Number(tip.hours)) + Number(tip.baseWage);
+      const { totalTips, tippedOut, hours, notes, baseWage, date, id } = tip
+      const formattedDate = this.genereteFormattedDate(date);
+      const takeHomeTips = totalTips - tippedOut;
+      const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
+      console.log(hourlyRate);
+      
 
       return (
-        <li className="tip-report" key={tip.id}>
+        <li className="tip-report" key={id}>
           <p>{formattedDate}</p>
           <p name="tips">Take Home Tips: <span>{takeHomeTips}</span></p>
-          <p name="tips">Total Hours: <span>{tip.hours}</span></p>          
+          <p name="tips">Total Hours: <span>{hours}</span></p>          
           <p name="tips">Hourly Rate: <span>${hourlyRate} / hr</span></p>
-          <p name="notes">Notes: <span>{tip.notes}</span></p>
+          <p name="notes">Notes: <span>{notes}</span></p>
         </li>
       )
     });
@@ -41,13 +62,18 @@ export class StatsPage extends Component {
   
     for (let tip of this.props.tips) {
 
-      let date = moment(tip.date).week();
+      let weekOfYear = moment(tip.date).week();
+      let year = moment(tip.date).year();
+      let yearAndWeek = `${year}-${weekOfYear}`;
+
+      
     
-      if (date in weeklyTips) {
-        weeklyTips[date].totalTips += tip.totalTips;
+      if (yearAndWeek in weeklyTips) {
+        weeklyTips[yearAndWeek].totalTips += tip.totalTips;
       } else {
-        weeklyTips[date] = {
+        weeklyTips[yearAndWeek] = {
           totalTips: tip.totalTips,
+          avgWage: 'so'
         };
       }
 

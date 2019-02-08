@@ -26,7 +26,7 @@ export class AddTipsForm extends Component {
     let errorMessage;
     if (this.props.error) {
         errorMessage = (
-            <div className="message message-error">{this.props.error}</div>
+          <div className="message message-error">{this.props.error}</div>
         );
     }
 
