@@ -1,6 +1,16 @@
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
 import {normalizeResponseErrors} from './utils';
+
+// Helper Func
+const getAuthToken = getState => {
+  return getState().auth.authToken
+}
+
+export const FETCH_TIPS_DATA_REQUEST = 'FETCH_TIPS_DATA_REQUEST';
+export const fetchTipsDataRequest = () => ({
+  type: FETCH_TIPS_DATA_REQUEST
+});
  
 export const FETCH_TIPS_DATA_SUCCESS = 'FETCH_TIPS_DATA_SUCCESS';
 export const fetchTipsDataSuccess = (tips) => ({
@@ -16,7 +26,8 @@ export const fetchTipsDataError = (error) => ({
 
 
 export const saveTips = newReport => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
   return (
     fetch(`${API_BASE_URL}/tips/`, {
       method: 'POST',
@@ -40,7 +51,8 @@ export const saveTips = newReport => (dispatch, getState) => {
 } 
 
 export const fetchTipsData = () => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
   return fetch(`${API_BASE_URL}/tips/`, {
     method: 'GET',
     headers: {
