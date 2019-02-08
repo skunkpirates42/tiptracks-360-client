@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchTipsData } from '../actions/tips';
-// import moment from 'moment'
+import moment from 'moment'
 import './stats-page.css'
 // console.log(moment('2019-02-07')) 
 
@@ -15,11 +15,16 @@ export class StatsPage extends Component {
     this.props.dispatch(fetchTipsData())
   }
 
+  genereteFormattedDate(date) {
+    return moment(date).format('dddd, MMMM Do YYYY');
+  }
+
   render() {
     const tips = this.props.tips.map((tip) => {
+      const formattedDate = this.genereteFormattedDate(tip.date);
       return (
         <li className="tip-report" key={tip.id}>
-          <p>{tip.formattedDate}</p>
+          <p>{formattedDate}</p>
           <p name="tips">Total Tips: <span>{(tip.totalTips - tip.tippedOut)}</span></p>
           <p name="tips">Total Hours: <span>{tip.hours}</span></p>          
           <p name="tips">Hourly Rate: <span>${(tip.totalTips / tip.hours).toFixed(2)} / hr</span></p>
