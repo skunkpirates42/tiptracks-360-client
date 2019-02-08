@@ -18,15 +18,14 @@ export class StatsPage extends Component {
     return moment(date).format('dddd, MMMM Do YYYY');
   }
 
-  toNumber (numString) {
-    return Number(numString);
-  }
-
   render() {
+
     const tips = this.props.tips.map((tip) => {
+
       const formattedDate = this.genereteFormattedDate(tip.date);
       const takeHomeTips = tip.totalTips - tip.tippedOut;
       const hourlyRate = (takeHomeTips / Number(tip.hours)) + Number(tip.baseWage);
+
       return (
         <li className="tip-report" key={tip.id}>
           <p>{formattedDate}</p>
@@ -37,6 +36,23 @@ export class StatsPage extends Component {
         </li>
       )
     });
+
+    const weeklyTips = {};
+  
+    for (let tip of this.props.tips) {
+
+      let date = moment(tip.date).week();
+    
+      if (date in weeklyTips) {
+        weeklyTips[date].totalTips += tip.totalTips;
+      } else {
+        weeklyTips[date] = {
+          totalTips: tip.totalTips,
+        };
+      }
+
+    }
+    console.log(weeklyTips);
     
     return (
       <div>

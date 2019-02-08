@@ -3,7 +3,9 @@ import { FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR, FETCH_TIPS_DATA_REQUEST
 const initialState = {
   tips: [],
   error: null,
-  loading: false
+  loading: false,
+  daily: {},
+  weekly: {}
 };
 
 export const tipsDataReducer = (state = initialState, action) => {

@@ -20,3 +20,8 @@ export const normalizeResponseErrors = res => {
   }
   return res;
 };
+
+export const getAuthToken = getState => {
+    return getState().auth.authToken
+  }
+  

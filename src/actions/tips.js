@@ -1,11 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
-import {normalizeResponseErrors} from './utils';
-
-// Helper Func
-const getAuthToken = getState => {
-  return getState().auth.authToken
-}
+import { normalizeResponseErrors, getAuthToken } from './utils';
 
 export const FETCH_TIPS_DATA_REQUEST = 'FETCH_TIPS_DATA_REQUEST';
 export const fetchTipsDataRequest = () => ({

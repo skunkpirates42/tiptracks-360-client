@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from '../config';
-import {normalizeResponseErrors} from './utils';
+import { normalizeResponseErrors, getAuthToken } from './utils';
 
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
@@ -74,3 +74,26 @@ export const login = (username, password) => dispatch => {
       })
   );
 };
+
+export const refreshAuthToken = () => (dispatch, getState) => {
+  dispatch(authRequest());
+  const authToken = getAuthToken(getState);
+  return (
+    fetch(`${API_BASE_URL}/auth/refresh`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${authToken}`
+      }
+    })
+      .then(res => normalizeResponseErrors(res))
+      .then(res => res.json())
+      .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+      .catch(err => {
+        // We couldn't get a refresh token because our current creds
+        // are invalid or expired, or something else went wrong, so clear
+        // then and sign us out
+        dispatch(authError(err));
+        dispatch(clearAuth());
+      })
+  )
+}

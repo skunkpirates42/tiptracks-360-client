@@ -7,9 +7,39 @@ import RegistrationPage from './registration-page';
 import StatsPage from './stats-page';
 import AddTipsForm from './add-tips-form';
 import HeaderBar from './header-bar';
+import { refreshAuthToken } from '../actions/auth';
 import './App.css';
 
 class App extends Component {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.loggedIn && this.props.loggedIn) {
+        // When we are logged in, refresh the auth token periodically
+        this.startPeriodicRefresh();
+    } else if (prevProps.loggedIn && !this.props.loggedIn) {
+        // Stop refreshing when we log out
+        this.stopPeriodicRefresh();
+    }
+}
+
+  componentWillUnmount() {
+    this.stopPeriodicRefresh();
+  }
+
+  startPeriodicRefresh() {
+    this.refreshInterval = setInterval(
+      () => this.props.dispatch(refreshAuthToken()),
+      60 * 60 * 1000 // Ten minutes
+    );
+  }
+
+  stopPeriodicRefresh() {
+    if (!this.refreshInterval) {
+      return;
+    }
+
+    clearInterval(this.refreshInterval);
+  }
+
   render() {
     return (
       <div className="App">
