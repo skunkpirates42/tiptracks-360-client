@@ -26,7 +26,6 @@ export const fetchTipsDataError = (error) => ({
 
 
 export const saveTips = newReport => (dispatch, getState) => {
-  dispatch(fetchTipsDataRequest());
   const authToken = getAuthToken(getState);
   return (
     fetch(`${API_BASE_URL}/tips/`, {

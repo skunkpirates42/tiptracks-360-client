@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './input';
 import requiresLogin from './requires-login';
+import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import { saveTips } from '../actions/tips';
 import { required, isNumber } from '../validators';
@@ -11,18 +12,31 @@ export class AddTipsForm extends Component {
     const { date, baseWage, hours, notes, tippedOut, totalTips } = values
     const { dispatch } = this.props;
     const newReport = { date, baseWage, hours, notes, tippedOut, totalTips }
-    console.log(values)
     return dispatch(saveTips(newReport));
     // Trying to redirect to stats page ...
     // .then(() => this.props.history.push('/stats'));
 }
 
   render() {
+    const { submitSucceeded } = this.props
+    if (submitSucceeded) {
+      return <Redirect to="/stats" />
+    }
+
+    let errorMessage;
+    if (this.props.error) {
+        errorMessage = (
+            <div className="message message-error">{this.props.error}</div>
+        );
+    }
+
+
     return (
       <div>
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+          {errorMessage}
           <label htmlFor="date">Date</label>
           <Field component={Input} type="date" name="date"/>
           <label htmlFor="totalTips">Total Tips</label>
@@ -67,7 +81,7 @@ export class AddTipsForm extends Component {
 
 
 export default requiresLogin()(reduxForm({
-  form: 'add-tips',
+  form: 'addTips',
   // onSubmitFail: (errors, dispatch) =>
   //     dispatch(focus('add-tips', Object.keys(errors)[0]))
 })(AddTipsForm));
