@@ -111,35 +111,31 @@ export class StatsPage extends Component {
       )
     });
 
+    const weekly = Object.keys(weeklyTips).map((week) => (
+      <li key={week} className="tip-report">
+        <p name="tips">Take Home Tips: <span>{weeklyTips[week].totalTips}</span></p>
+        {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
+        <p name="tips">Average Hourly Rate: <span>${(weeklyTips[week].avgWage).toFixed(2)} / hr</span></p>
+      </li>
+    ));
+
+
+    const monthly = Object.keys(monthlyTips).map((month) => (
+      <li key={month} className="tip-report">
+        <p name="tips">Take Home Tips: <span>{monthlyTips[month].totalTips}</span></p>
+        {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
+        <p name="tips">Average Hourly Rate: <span>${(monthlyTips[month].avgWage).toFixed(2)} / hr</span></p>
+      </li>
+    ));
+
     let tipsView;
     if (this.state.view === 'daily') {
       tipsView = daily;
     } else if (this.state.view === 'weekly') {
-
-      // As of right now this doesn't work b/c I need to access `weeklyTips[yearAndWeek].totalTips`
-      // and I'm trying to access just weeklyTips.totalTips which does not exist...
-      // need to figures out a way to do that.. perhaps Object.keys then iterate over it like an
-      // array? 
-            
-      tipsView = (
-      <li className="tip-report">
-        <p name="tips">Take Home Tips: <span>{weeklyTips.totalTips}</span></p>
-        {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
-        <p name="tips">Average Hourly Rate: <span>${weeklyTips.avgWage} / hr</span></p>
-      </li>
-    )
+      tipsView = weekly;
     } else if (this.state.view === 'monthly') {
-      tipsView = (
-        <li className="tip-report">
-          <p name="tips">Take Home Tips: <span>{monthlyTips.totalTips}</span></p>
-          {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
-          <p name="tips">Average Hourly Rate: <span>${monthlyTips.avgWage} / hr</span></p>
-        </li>
-      )
+      tipsView = monthly
     }
-    console.log(weeklyTips);
-    console.log(monthlyTips);
-    
     
     return (
       <div>
