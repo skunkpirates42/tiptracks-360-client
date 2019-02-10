@@ -19,6 +19,12 @@ export const fetchTipsDataError = (error) => ({
   error
 });
 
+export const DELETE_TIP_SUCCESS = 'DELETE_TIP_SUCCESS';
+export const deleteTipSuccess = (id) => ({
+  type: DELETE_TIP_SUCCESS,
+  id
+});
+
 
 export const saveTips = newReport => (dispatch, getState) => {
   const authToken = getAuthToken(getState);
@@ -65,11 +71,11 @@ export const deleteTip = id => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/tips/${id}`, {
     method: 'DELETE',
     headers: {
+      'Content-type': 'apllication/json',
       'Authorization': `Bearer ${authToken}`
     }
   })
     .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(tips => dispatch(fetchTipsDataSuccess(tips)))
-    .catch(err => dispatch(fetchTipsDataError(err)));
+    .then(() => dispatch(deleteTipSuccess(id)))
+    .catch(err => dispatch(fetchTipsDataError(err)))
 }

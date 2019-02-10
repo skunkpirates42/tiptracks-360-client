@@ -16,6 +16,10 @@
   border: 1px solid #eee;
 }
 
+.trash {
+  cursor: pointer;
+}
+
 /* For Bigger Screens */
 @media(min-width: 600px) {
   .card {
