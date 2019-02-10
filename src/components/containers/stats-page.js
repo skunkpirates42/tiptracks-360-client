@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchTipsData } from '../actions/tips';
-import Card from './card';
+import { fetchTipsData } from '../../actions/tips';
+import Card from '../card';
 import moment from 'moment'
 
 export class StatsPage extends Component {

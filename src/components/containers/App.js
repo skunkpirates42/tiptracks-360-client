@@ -5,10 +5,10 @@ import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import StatsPage from './stats-page';
-import AddTipsForm from './add-tips-form';
-import HeaderBar from './header-bar';
-import { refreshAuthToken } from '../actions/auth';
-import './styles/App.css';
+import AddTipsForm from '../add-tips-form';
+import HeaderBar from '../header-bar';
+import { refreshAuthToken } from '../../actions/auth';
+import '../styles/App.css';
 
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Input from './input';
-import requiresLogin from './requires-login';
+import requiresLogin from './containers/requires-login';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import { saveTips } from '../actions/tips';
