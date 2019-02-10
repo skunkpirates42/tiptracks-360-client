@@ -8,7 +8,7 @@ import StatsPage from './stats-page';
 import AddTipsForm from './add-tips-form';
 import HeaderBar from './header-bar';
 import { refreshAuthToken } from '../actions/auth';
-import './App.css';
+import './styles/App.css';
 
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'

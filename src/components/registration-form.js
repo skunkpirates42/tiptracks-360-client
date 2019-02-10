@@ -4,7 +4,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users.js';
 import { login } from '../actions/auth';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators'
-import './login.css';
+import './styles//login.css';
 const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password')
 

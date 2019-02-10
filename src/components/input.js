@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './input.css'
+import './styles/input.css'
 
 export default class Input extends Component {
   componentDidUpdate(prevProps) {

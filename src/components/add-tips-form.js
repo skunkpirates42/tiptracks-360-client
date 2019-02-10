@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import { saveTips } from '../actions/tips';
 import { required, isNumber } from '../validators';
-import './add-tips-form.css'
+import './styles/add-tips-form.css'
 
 export class AddTipsForm extends Component {
   onSubmit(values) {

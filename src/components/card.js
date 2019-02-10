@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './stats-page.css';
-import './card.css';
+import './styles/stats-page.css';
+import './styles/card.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { deleteTip } from '../actions/tips';
 
