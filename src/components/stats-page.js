@@ -112,23 +112,25 @@ export class StatsPage extends Component {
       )
     });
 
-    const weekly = Object.keys(weeklyTips).map((week) => (
+    const weekly = Object.keys(weeklyTips).map((week) => {
+      const weekly = weeklyTips[week];
+      return (
         <Card 
           key={week} hourlyType="Average Hourly Rate"
-          totalTips={weeklyTips[week].totalTips}
-          hours={weeklyTips[week].hours}
-          avgWage={weeklyTips[week].avgWage}
+          totalTips={weekly.totalTips} hours={weekly.hours}
+          avgWage={weekly.avgWage}
         />
-    ));
+    )});
 
-    const monthly = Object.keys(monthlyTips).map((month) => (
+    const monthly = Object.keys(monthlyTips).map((month) => {
+      const monthly = monthlyTips[month];
+      return (
        <Card
           key={month} hourlyType="Average Hourly Rate"
-          totalTips={monthlyTips[month].totalTips}
-          hours={monthlyTips[month].hours}
-          avgWage={monthlyTips[month].avgWage}
+          totalTips={monthly.totalTips} hours={monthly.hours}
+          avgWage={monthly.avgWage}
         />
-    ));
+    )});
 
     let tipsView;
     if (this.state.view === 'daily') {
@@ -142,6 +144,7 @@ export class StatsPage extends Component {
     return (
       <div>
         <h2>Stats for {this.props.username}</h2>
+        {/* make the below into another component... controls.js maybe? */}
         <button onClick={() => this.setState({view: 'daily'})}>daily</button>
         <button onClick={() => this.setState({view: 'weekly'})}>weekly</button>
         <button onClick={() => this.setState({view: 'monthly'})}>monthly</button>
