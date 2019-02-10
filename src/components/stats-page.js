@@ -14,8 +14,8 @@ export class StatsPage extends Component {
     this.props.dispatch(fetchTipsData())
   }
 
-  genereteFormattedDate(date) {
-    return moment(date).format('dddd, MMMM Do YYYY');
+  genereteFormattedDate(date, format) {
+    return moment(date).format(format);
   }
 
   calcTakeHomeTips (totalTips, tippedOut) {
@@ -100,14 +100,14 @@ export class StatsPage extends Component {
 
     const daily = this.props.tips.map((tip) => {
       const { totalTips, tippedOut, hours, notes, baseWage, date, id } = tip
-      const formattedDate = this.genereteFormattedDate(date);
+      const formattedDate = this.genereteFormattedDate(date, 'dddd, MMMM Do YYYY');
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
+      const stats = { formattedDate, hourlyRate, notes, hours };
 
       return (
         <Card
-          key={id} formattedDate={formattedDate} hourlyRate={hourlyRate}
-          notes={notes} hours={hours} hourlyType="Hourly Rate"
+          key={id} hourlyType="Hourly Rate" {...stats}
         />
       )
     });
@@ -116,9 +116,7 @@ export class StatsPage extends Component {
       const weekly = weeklyTips[week];
       return (
         <Card 
-          key={week} hourlyType="Average Hourly Rate"
-          totalTips={weekly.totalTips} hours={weekly.hours}
-          avgWage={weekly.avgWage}
+          key={week} hourlyType="Average Hourly Rate" {...weekly}
         />
     )});
 
@@ -126,9 +124,7 @@ export class StatsPage extends Component {
       const monthly = monthlyTips[month];
       return (
        <Card
-          key={month} hourlyType="Average Hourly Rate"
-          totalTips={monthly.totalTips} hours={monthly.hours}
-          avgWage={monthly.avgWage}
+          key={month} hourlyType="Average Hourly Rate" {...monthly}
         />
     )});
 

@@ -1,9 +1,10 @@
 import React from 'react'
-import './stats-page.css'
+import './stats-page.css';
+import './card.css';
 
 export default function Card(props) {
   return (
-    <div>
+    <div className="card">
       <li className="tip-report">
         {props.formattedDate && <p>{props.formattedDate}</p>}
         <p>Take Home Tips: <span>{props.totalTips}</span></p>
