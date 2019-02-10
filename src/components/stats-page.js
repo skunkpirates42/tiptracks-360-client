@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import { fetchTipsData } from '../actions/tips';
 import Card from './card';
 import moment from 'moment'
-import './stats-page.css'
 
 export class StatsPage extends Component {
   state = {
@@ -104,32 +103,27 @@ export class StatsPage extends Component {
       const formattedDate = this.genereteFormattedDate(date);
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
-      
 
       return (
-        <li className="tip-report" key={id}>
-          <p>{formattedDate}</p>
-          <p name="tips">Take Home Tips: <span>{takeHomeTips}</span></p>
-          <p name="tips">Total Hours: <span>{hours}</span></p>          
-          <p name="tips">Hourly Rate: <span>${hourlyRate.toFixed(2)} / hr</span></p>
-          <p name="notes">Notes: <span>{notes}</span></p>
-        </li>
+        <Card
+          key={id} formattedDate={formattedDate} hourlyRate={hourlyRate}
+          notes={notes} hours={hours} hourlyType="Hourly Rate"
+        />
       )
     });
 
     const weekly = Object.keys(weeklyTips).map((week) => (
         <Card 
-          key={week}
+          key={week} hourlyType="Average Hourly Rate"
           totalTips={weeklyTips[week].totalTips}
           hours={weeklyTips[week].hours}
           avgWage={weeklyTips[week].avgWage}
         />
     ));
 
-
     const monthly = Object.keys(monthlyTips).map((month) => (
        <Card
-          key={month} 
+          key={month} hourlyType="Average Hourly Rate"
           totalTips={monthlyTips[month].totalTips}
           hours={monthlyTips[month].hours}
           avgWage={monthlyTips[month].avgWage}
