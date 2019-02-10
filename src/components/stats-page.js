@@ -103,7 +103,7 @@ export class StatsPage extends Component {
       const formattedDate = this.genereteFormattedDate(date, 'dddd, MMMM Do YYYY');
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
-      const stats = { formattedDate, hourlyRate, notes, hours };
+      const stats = { formattedDate, hourlyRate, notes, hours, id };
 
       return (
         <Card

@@ -58,3 +58,18 @@ export const fetchTipsData = () => (dispatch, getState) => {
     .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
     .catch(err => dispatch(fetchTipsDataError(err)));
 }
+
+export const deleteTip = id => (dispatch, getState) => {
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
+  return fetch(`${API_BASE_URL}/tips/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(tips => dispatch(fetchTipsDataSuccess(tips)))
+    .catch(err => dispatch(fetchTipsDataError(err)));
+}

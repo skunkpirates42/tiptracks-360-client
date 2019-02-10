@@ -1,6 +1,7 @@
 import React from 'react'
 import './stats-page.css';
 import './card.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Card(props) {
   return (
@@ -10,7 +11,8 @@ export default function Card(props) {
         <p>Take Home Tips: <span>{props.totalTips}</span></p>
         <p>Total Hours: <span>{props.hours}</span></p>
         <p>{props.hourlyType}: <span>${(props.hourlyRate || props.avgWage).toFixed(2)} / hr</span></p>
-        {props.notes && <p>Notes: {props.notes}</p>}
+        {props.notes && <p className="notes">Notes: {props.notes}</p>}
+        {props.id && <FontAwesomeIcon pull="right" icon="trash-alt"/>}
       </li>
     </div>
   )
