@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchTipsData } from '../actions/tips';
+import Card from './card';
 import moment from 'moment'
 import './stats-page.css'
 
@@ -71,24 +72,29 @@ export class StatsPage extends Component {
       if (yearAndWeek in weeklyTips) {
         weeklyTips[yearAndWeek].totalTips += takeHomeTips;
         weeklyTips[yearAndWeek].wages.push(hourlyRate);
-        weeklyTips[yearAndWeek].avgWage = this.calcAvgHourlyRate(weeklyTips[yearAndWeek].wages)
+        weeklyTips[yearAndWeek].avgWage = this.calcAvgHourlyRate(weeklyTips[yearAndWeek].wages);
+        weeklyTips[yearAndWeek].hours += Number(tip.hours)
+
       } else {
         weeklyTips[yearAndWeek] = {
           totalTips: takeHomeTips,
           wages: [hourlyRate],
-          avgWage: hourlyRate
+          avgWage: hourlyRate,
+          hours: Number(tip.hours)
         };
       }
 
       if (monthAndYear in monthlyTips) {
         monthlyTips[monthAndYear].totalTips += takeHomeTips;
         monthlyTips[monthAndYear].wages.push(hourlyRate);
-        monthlyTips[monthAndYear].avgWage = this.calcAvgHourlyRate(monthlyTips[monthAndYear].wages)
+        monthlyTips[monthAndYear].avgWage = this.calcAvgHourlyRate(monthlyTips[monthAndYear].wages);
+        monthlyTips[monthAndYear].hours += Number(tip.hours);
       } else {
         monthlyTips[monthAndYear] = {
           totalTips: takeHomeTips,
           wages: [hourlyRate],
-          avgWage: hourlyRate
+          avgWage: hourlyRate,
+          hours: Number(tip.hours)
         };
       }
     }
@@ -112,20 +118,22 @@ export class StatsPage extends Component {
     });
 
     const weekly = Object.keys(weeklyTips).map((week) => (
-      <li key={week} className="tip-report">
-        <p name="tips">Take Home Tips: <span>{weeklyTips[week].totalTips}</span></p>
-        {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
-        <p name="tips">Average Hourly Rate: <span>${(weeklyTips[week].avgWage).toFixed(2)} / hr</span></p>
-      </li>
+        <Card 
+          key={week}
+          totalTips={weeklyTips[week].totalTips}
+          hours={weeklyTips[week].hours}
+          avgWage={weeklyTips[week].avgWage}
+        />
     ));
 
 
     const monthly = Object.keys(monthlyTips).map((month) => (
-      <li key={month} className="tip-report">
-        <p name="tips">Take Home Tips: <span>{monthlyTips[month].totalTips}</span></p>
-        {/* <p name="tips">Total Hours: <span>{hours}</span></p> */}
-        <p name="tips">Average Hourly Rate: <span>${(monthlyTips[month].avgWage).toFixed(2)} / hr</span></p>
-      </li>
+       <Card
+          key={month} 
+          totalTips={monthlyTips[month].totalTips}
+          hours={monthlyTips[month].hours}
+          avgWage={monthlyTips[month].avgWage}
+        />
     ));
 
     let tipsView;

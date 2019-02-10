@@ -18,7 +18,7 @@ export class AddTipsForm extends Component {
 }
 
   render() {
-    const { submitSucceeded } = this.props
+    const { submitSucceeded, pristine, submitting } = this.props
     if (submitSucceeded) {
       return <Redirect to="/stats" />
     }
@@ -37,28 +37,26 @@ export class AddTipsForm extends Component {
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
-          <label htmlFor="date">Date</label>
-          <Field component={Input} type="date" name="date"/>
-          <label htmlFor="totalTips">Total Tips</label>
-          <Field component={Input} type="text" name="totalTips"/>
-          <label htmlFor="tippedOut">Tipped Out</label>
+          <Field label="Date" component={Input} type="date" name="date"/>
+          <Field label="Total Tips" component={Input} type="text" name="totalTips"/>
           <Field 
+            label="Tipped Out"
             component={Input} 
             type="text"
             id="tippedOut"
             name="tippedOut"
             validate={[required, isNumber]}
           />
-          <label htmlFor="baseWage">Hourly Wage</label>
           <Field 
+            label="Hourly Wage"
             component={Input} 
             type="baseWage" 
             id="baseWage"
             name="baseWage"
             validate={[isNumber]}
           />
-          <label htmlFor="hours">Total Hours</label>
           <Field
+            label="Total Hours"
             component={Input}
             type="hours"
             name="hours"
@@ -70,7 +68,7 @@ export class AddTipsForm extends Component {
             type="notes"
             name="notes"
           />
-          <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
+          <button type="submit" disabled={pristine || submitting}>Submit</button>
         </form>
       </div>
     )
