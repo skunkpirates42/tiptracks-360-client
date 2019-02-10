@@ -145,7 +145,6 @@ export class StatsPage extends Component {
     return (
       <div>
         <h2>Stats for {this.props.username}</h2>
-        {/* make the below into another component... controls.js maybe? */}
         <Controls setView={(view) => this.setView(view)}/>
         <ul>
          {tipsView}
