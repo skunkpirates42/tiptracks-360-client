@@ -9,6 +9,16 @@
   margin-bottom: 5px;
 }
 
+.dollar {
+  margin: 0 .75em;
+}
+
 h1 {
   margin: 0;
+}
+
+@media (min-width: 600px) {
+  .dollar {
+    margin: 0 2em
+  }
 }

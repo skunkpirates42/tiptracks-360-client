@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {clearAuth} from '../actions/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './header-bar.css';
 
 export class HeaderBar extends React.Component {
@@ -20,6 +21,9 @@ export class HeaderBar extends React.Component {
 
     return (
       <header className="app-header">
+        <FontAwesomeIcon icon="dollar-sign"  className="dollar" pull="left" size="3x"/> 
+        <FontAwesomeIcon icon="dollar-sign"  className="dollar" pull="right" size="3x"/> 
+
         <h1>Tiptracks 360</h1>
         <h3>Giving you all around insight int your tips</h3>
         { logOutButton }

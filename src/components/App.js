@@ -12,9 +12,9 @@ import './App.css';
 
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faDollarSign } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTrashAlt)
+library.add(faTrashAlt, faDollarSign)
 
 class App extends Component {
   componentDidUpdate(prevProps) {
