@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchTipsData } from '../../actions/tips';
 import Card from '../card';
+import Controls from '../controls'
 import moment from 'moment'
 
 export class StatsPage extends Component {
@@ -12,6 +13,10 @@ export class StatsPage extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchTipsData())
+  }
+
+  setView(view) {
+    this.setState({ view })
   }
 
   genereteFormattedDate(date, format) {
@@ -141,9 +146,7 @@ export class StatsPage extends Component {
       <div>
         <h2>Stats for {this.props.username}</h2>
         {/* make the below into another component... controls.js maybe? */}
-        <button onClick={() => this.setState({view: 'daily'})}>daily</button>
-        <button onClick={() => this.setState({view: 'weekly'})}>weekly</button>
-        <button onClick={() => this.setState({view: 'monthly'})}>monthly</button>
+        <Controls setView={(view) => this.setView(view)}/>
         <ul>
          {tipsView}
         </ul>
