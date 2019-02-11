@@ -70,7 +70,7 @@ export class StatsPage extends Component {
       const yearAndWeek = `${year}-${weekOfYear}`;
       const takeHomeTips = this.calcTakeHomeTips(tip.totalTips, tip.tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, tip.hours, tip.baseWage);
-      const monthlyFormatted = this.genereteFormattedDate(tip.date, 'MMMM YYYY');
+      const monthlyFormatted = `Month of ${this.genereteFormattedDate(tip.date, 'MMMM YYYY')}`;
       const weeklyFormatted = `Week of ${firstDayOfWeek}`;
       
       if (yearAndWeek in weeklyTips) {

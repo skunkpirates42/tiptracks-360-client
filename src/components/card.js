@@ -14,9 +14,10 @@ export function Card(props) {
         <p>Total Hours: <span>{props.hours}</span></p>
         <p>{props.hourlyType}: <span>${(props.hourlyRate || props.avgWage).toFixed(2)} / hr</span></p>
         {props.notes && <p className="notes">Notes: {props.notes}</p>}
+        <FontAwesomeIcon className="fas plus" pull="left" icon="plus" />
         {
           props.id && <FontAwesomeIcon 
-            pull="right" className="trash"
+            pull="right" className="fas trash"
             icon="trash-alt" onClick={() => props.dispatch(deleteTip(props.id))}
           />
         }

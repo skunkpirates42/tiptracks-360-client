@@ -16,8 +16,28 @@
   border: 1px solid #eee;
 }
 
-.trash {
+.fas {
   cursor: pointer;
+}
+
+.trash {
+  color: crimson;
+  transition: all .15s ease-in;
+}
+
+.trash:hover {
+  color: red;
+  transform: scale(1.25); 
+}
+
+.plus {
+  color: #46A761;
+  transition: all .15s ease-in;
+}
+
+.plus:hover {
+  color: rgb(94, 187, 121);
+  transform: scale(1.25); 
 }
 
 /* For Bigger Screens */
