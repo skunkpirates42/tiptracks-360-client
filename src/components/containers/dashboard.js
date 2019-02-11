@@ -10,10 +10,9 @@ export class Dashboard extends Component {
         <div className="dashboard-username">
           <h2>Hello {this.props.username}</h2>
         </div>
-        <div className="dashboard-name">Name: {this.props.name}</div>
-        <NavLink to="/add-tips"><button onClick={() => console.log('Add btn clicked')}> 
-        Add Your Tips</button></NavLink>
-        <NavLink to="/stats"><button >View your stats</button></NavLink>
+        <NavLink to="/add-job"><button> Add A Job</button></NavLink>
+        <NavLink to="/add-tips"><button> Add Tips</button></NavLink>
+        <NavLink to="/stats"><button >View Stats</button></NavLink>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import StatsPage from './stats-page';
 import AddTipsForm from '../add-tips-form';
+import AddJobForm from '../add-job-form';
 import HeaderBar from '../header-bar';
 import { refreshAuthToken } from '../../actions/auth';
 import '../styles/App.css';
@@ -13,6 +14,7 @@ import '../styles/App.css';
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashAlt, faDollarSign, faPlus } from '@fortawesome/free-solid-svg-icons'
+import addJobForm from '../add-job-form';
 library.add(faTrashAlt, faDollarSign, faPlus)
 
 class App extends Component {
@@ -55,6 +57,7 @@ class App extends Component {
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/stats" component={StatsPage} />
           <Route exact path="/add-tips" component={() => <AddTipsForm />} />
+          <Route exact path="/add-job" component={() => <AddJobForm />} />
         </Switch>
       </div>
     );
