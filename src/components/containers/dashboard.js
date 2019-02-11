@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import { NavLink } from 'react-router-dom';
+import DashControls from '../dash-controls';
 
 export class Dashboard extends Component {
   render() {
@@ -10,9 +10,7 @@ export class Dashboard extends Component {
         <div className="dashboard-username">
           <h2>Hello {this.props.username}</h2>
         </div>
-        <NavLink to="/add-job"><button> Add A Job</button></NavLink>
-        <NavLink to="/add-tips"><button> Add Tips</button></NavLink>
-        <NavLink to="/stats"><button >View Stats</button></NavLink>
+        <DashControls />
       </div>
     );
   }

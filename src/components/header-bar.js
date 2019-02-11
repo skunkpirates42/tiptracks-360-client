@@ -25,7 +25,7 @@ export class HeaderBar extends React.Component {
         <FontAwesomeIcon icon="dollar-sign"  className="dollar" pull="right" size="3x"/> 
 
         <h1>Tiptracks 360</h1>
-        <h3>Giving you all around insight int your tips</h3>
+        <h3>Giving you all around insight into your tips</h3>
         { logOutButton }
       </header>
     );
