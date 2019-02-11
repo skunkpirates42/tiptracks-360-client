@@ -13,8 +13,6 @@ export class AddTipsForm extends Component {
     const { dispatch } = this.props;
     const newReport = { date, baseWage, hours, notes, tippedOut, totalTips }
     return dispatch(saveTips(newReport));
-    // Trying to redirect to stats page ...
-    // .then(() => this.props.history.push('/stats'));
 }
 
   render() {
@@ -29,7 +27,6 @@ export class AddTipsForm extends Component {
           <div className="message message-error">{this.props.error}</div>
         );
     }
-
 
     return (
       <div>
@@ -74,9 +71,6 @@ export class AddTipsForm extends Component {
     )
   } 
 }
-
-
-
 
 export default requiresLogin()(reduxForm({
   form: 'addTips',

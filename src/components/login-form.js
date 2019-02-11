@@ -47,9 +47,9 @@ export class LoginForm extends Component {
             name="password"
             validate={[required, nonEmpty]}
           />
-          <button disabled={pristine || submitting}>Submit</button>
+          <button className="submit" disabled={pristine || submitting}>Submit</button>
         </form>
-        <Link to="/register">Register</Link>
+        <span className="register">Don't have an account?</span><Link to="/register">Register</Link>
       </div>
     )
   } 

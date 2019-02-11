@@ -9,7 +9,7 @@ export function Card(props) {
   return (
     <div className="card">
       <li className="tip-report">
-        {props.formattedDate && <p>{props.formattedDate}</p>}
+        <p><span>{props.formattedDate}</span></p>
         <p>Take Home Tips: <span>{props.totalTips || props.takeHomeTips}</span></p>
         <p>Total Hours: <span>{props.hours}</span></p>
         <p>{props.hourlyType}: <span>${(props.hourlyRate || props.avgWage).toFixed(2)} / hr</span></p>
