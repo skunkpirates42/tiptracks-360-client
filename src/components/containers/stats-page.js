@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchTipsData } from '../../actions/tips';
 import Card from '../card';
-import Controls from '../controls'
-import moment from 'moment'
+import Controls from '../controls';
+import BackArrow from '../back-arrow';
+import moment from 'moment';
 
 export class StatsPage extends Component {
   state = {
@@ -148,6 +149,7 @@ export class StatsPage extends Component {
     
     return (
       <div>
+        <BackArrow to="/dashboard" pull="left" />
         <h2>Stats for {this.props.username}</h2>
         <Controls setView={(view) => this.setView(view)}/>
         <ul>

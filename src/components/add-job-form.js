@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './input';
+import BackArrow from './back-arrow'
 import requiresLogin from './containers/requires-login';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
@@ -31,6 +32,7 @@ export class AddJobForm extends Component {
 
     return (
       <div>
+        <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
