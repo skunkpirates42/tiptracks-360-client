@@ -3,12 +3,16 @@ import Input from './input';
 import requiresLogin from './containers/requires-login';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
+import { saveJob } from '../actions/jobs';
 import { required, isNumber } from '../validators';
 import './styles/add-tips-form.css'
 
 export class AddJobForm extends Component {
   onSubmit(values) {
-    console.log(values);
+    const { job, position, baseWage } = values;
+    const { dispatch } = this.props;
+    const newJob = { job, position, baseWage };
+    return dispatch(saveJob(newJob))
 }
 
   render() {
