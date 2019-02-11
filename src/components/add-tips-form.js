@@ -80,6 +80,6 @@ export class AddTipsForm extends Component {
 
 export default requiresLogin()(reduxForm({
   form: 'addTips',
-  // onSubmitFail: (errors, dispatch) =>
-  //     dispatch(focus('add-tips', Object.keys(errors)[0]))
+  onSubmitFail: (errors, dispatch) =>
+      dispatch(focus('addTips', Object.keys(errors)[0]))
 })(AddTipsForm));

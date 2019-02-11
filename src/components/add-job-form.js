@@ -57,6 +57,6 @@ export class AddJobForm extends Component {
 
 export default requiresLogin()(reduxForm({
   form: 'addJob',
-  // onSubmitFail: (errors, dispatch) =>
-  //     dispatch(focus('add-tips', Object.keys(errors)[0]))
+  onSubmitFail: (errors, dispatch) =>
+      dispatch(focus('addJob', Object.keys(errors)[0]))
 })(AddJobForm));
