@@ -12,9 +12,6 @@ export class Dashboard extends Component {
         </div>
         <div className="dashboard-name">Name: {this.props.name}</div>
         <NavLink to="/add-tips"><button onClick={() => console.log('Add btn clicked')}> 
-        {/* {
-          !this.props.jobs ? 'Add A Job' : 'Add Your Tips'
-        } */}
         Add Your Tips</button></NavLink>
         <NavLink to="/stats"><button >View your stats</button></NavLink>
       </div>

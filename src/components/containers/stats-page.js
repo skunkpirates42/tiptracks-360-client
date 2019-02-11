@@ -62,16 +62,16 @@ export class StatsPage extends Component {
     const monthlyTips = {};
   
     for (let tip of this.props.tips) {
-
+      const firstDayOfWeek = moment(tip.date).weekday(0).format('MMMM Do YYYY')
       const weekOfYear = moment(tip.date).week();
       const year = moment(tip.date).year();
       const month = moment(tip.date).month();
       const monthAndYear = `${month} - ${year}`;
       const yearAndWeek = `${year}-${weekOfYear}`;
       const takeHomeTips = this.calcTakeHomeTips(tip.totalTips, tip.tippedOut);
-      const hourlyRate = this.calcHourlyRate(takeHomeTips, tip.hours, tip.baseWage)
-      
-      
+      const hourlyRate = this.calcHourlyRate(takeHomeTips, tip.hours, tip.baseWage);
+      const monthlyFormatted = this.genereteFormattedDate(tip.date, 'MMMM YYYY');
+      const weeklyFormatted = `Week of ${firstDayOfWeek}`;
       
       if (yearAndWeek in weeklyTips) {
         weeklyTips[yearAndWeek].totalTips += takeHomeTips;
@@ -81,6 +81,7 @@ export class StatsPage extends Component {
 
       } else {
         weeklyTips[yearAndWeek] = {
+          formattedDate: weeklyFormatted,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -95,6 +96,7 @@ export class StatsPage extends Component {
         monthlyTips[monthAndYear].hours += Number(tip.hours);
       } else {
         monthlyTips[monthAndYear] = {
+          formattedDate: monthlyFormatted,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -102,6 +104,8 @@ export class StatsPage extends Component {
         };
       }
     }
+    console.log(weeklyTips);
+    
 
     const daily = this.props.tips.map((tip) => {
       const { totalTips, tippedOut, hours, notes, baseWage, date, id } = tip
