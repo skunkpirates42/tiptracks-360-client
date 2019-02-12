@@ -9,6 +9,10 @@ body {
   background-color: rgba(189, 187, 186, 0.454);
 }
 
+/* * {
+  box-sizing: border-box;
+}  */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

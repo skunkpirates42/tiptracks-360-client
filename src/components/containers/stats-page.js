@@ -7,7 +7,7 @@ import Controls from '../controls';
 import BackArrow from '../back-arrow';
 import moment from 'moment';
 import {stats} from '../../utils/stats';
-
+import '../styles/stats-page.css'
 export class StatsPage extends Component {
   state = {
     view: 'daily'
@@ -167,7 +167,7 @@ export class StatsPage extends Component {
         <BackArrow to="/dashboard" pull="left" />
         <h2>Stats for {this.props.username}</h2>
         <Controls setView={(view) => this.setView(view)}/>
-        <ul>
+        <ul className="card-container">
          {tipsView}
         </ul>
       </div>

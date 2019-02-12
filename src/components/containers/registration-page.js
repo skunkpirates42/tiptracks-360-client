@@ -14,7 +14,6 @@ export function RegistrationPage(props) {
         <div className="home">
             <h2>Register for Tiptracks 360</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
         </div>
     );
 }

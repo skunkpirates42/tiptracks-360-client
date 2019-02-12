@@ -30,7 +30,7 @@ export class AddTipsForm extends Component {
     }
 
     return (
-      <div>
+      <div className="form-container">
         <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
@@ -67,7 +67,7 @@ export class AddTipsForm extends Component {
             type="notes"
             name="notes"
           />
-          <button type="submit" disabled={pristine || submitting}>Submit</button>
+          <button className="submit" type="submit" disabled={pristine || submitting}>Submit</button>
         </form>
       </div>
     )

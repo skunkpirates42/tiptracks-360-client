@@ -1,6 +1,12 @@
 .form-input {
-  border-radius: 10px;
+  height: 2em;
+  width: 94%;
+  border-radius: 0.25em;
   border: 1px solid black;
+  margin: 0.5em 0;
+  padding: 0 10px;
+  font-size: 1em;
+
 }
 
 label {

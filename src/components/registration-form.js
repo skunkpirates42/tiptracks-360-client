@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Input from './input';
+import { Link } from 'react-router-dom'
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users.js';
 import { login } from '../actions/auth';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators'
-import './styles//login.css';
+import './styles/form.css';
 const passwordLength = length({min: 8, max: 72});
 const matchesPassword = matches('password')
 
@@ -19,7 +20,7 @@ export class RegistrationForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form-container">
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -47,8 +48,9 @@ export class RegistrationForm extends Component {
             name="passwordConfirm"
             validate={[required, nonEmpty, matchesPassword]}
           />
-          <button type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
+          <button className="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
         </form>
+        <Link to="/">Login</Link>
       </div>
     )
   } 

@@ -4,7 +4,7 @@ import Input from './input';
 import { Field, reduxForm, focus } from 'redux-form';
 import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
-import './styles/login.css';
+import './styles/form.css';
 
 export class LoginForm extends Component {
   onSubmit(values) {
@@ -26,7 +26,7 @@ export class LoginForm extends Component {
     }
 
     return (
-      <div>
+      <div className="form-container">
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

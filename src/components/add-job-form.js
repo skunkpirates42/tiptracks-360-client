@@ -31,7 +31,7 @@ export class AddJobForm extends Component {
 
 
     return (
-      <div>
+      <div className="form-container">
         <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
@@ -47,7 +47,7 @@ export class AddJobForm extends Component {
             name="baseWage"
             validate={[isNumber, required]}
           />
-          <button type="submit" disabled={pristine || submitting}>Submit</button>
+          <button className="submit" type="submit" disabled={pristine || submitting}>Submit</button>
         </form>
       </div>
     )
