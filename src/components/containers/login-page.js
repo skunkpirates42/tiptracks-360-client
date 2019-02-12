@@ -5,15 +5,6 @@ import {Redirect} from 'react-router-dom';
 import LoginForm from '../login-form';
 
 export class LoginPage extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loggedIn: false
-    }
-  }
-
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
@@ -26,7 +17,7 @@ export class LoginPage extends React.Component {
   
   render ()   {
     // If we are logged in redirect straight to the user's dashboard
-    if (this.state.loggedIn) {
+    if (this.props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
     return (
@@ -39,7 +30,7 @@ export class LoginPage extends React.Component {
   }
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.authToken
 });
 
 export default connect(mapStateToProps)(LoginPage);
