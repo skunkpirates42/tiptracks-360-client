@@ -8,9 +8,9 @@ export const fetchTipsDataRequest = () => ({
 });
  
 export const FETCH_JOBS_DATA_SUCCESS = 'FETCH_JOBS_DATA_SUCCESS';
-export const fetchJobsDataSuccess = (job) => ({
+export const fetchJobsDataSuccess = (jobs) => ({
   type: FETCH_JOBS_DATA_SUCCESS,
-  job
+  jobs
 });
 
 export const FETCH_JOBS_DATA_ERROR = 'FETCH_JOBS_DATA_ERROR';
@@ -31,8 +31,7 @@ export const saveJob = newJob => (dispatch, getState) => {
       body: JSON.stringify(newJob)
     })
       .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      // .then(res => dispatch(fetchJobsDataSuccess(res)))      
+      .then(res => res.json())     
       .catch(err => {
         console.error(err.message);
         return Promise.reject(
@@ -42,4 +41,19 @@ export const saveJob = newJob => (dispatch, getState) => {
         );
       })
   );
-} 
+}
+
+export const fetchJobs = () => (dispatch, getState) => {
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
+  return fetch(`${API_BASE_URL}/jobs`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as creds
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => res.json())
+    .then((jobs) => dispatch(fetchJobsDataSuccess(jobs)))
+    .catch(err => dispatch(fetchJobsDataError(err)));
+}
