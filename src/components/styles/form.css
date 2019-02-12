@@ -17,3 +17,17 @@
   border: 1px solid grey;
   border-radius: 5px */
 }
+
+.notes {
+  width: 98.5%;
+  height: 4em;
+  margin: 0.5em 0;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+@media (min-width: 600px) {
+  .notes {
+    width: 99%;
+  }
+}

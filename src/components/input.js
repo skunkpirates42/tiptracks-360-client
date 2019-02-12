@@ -22,7 +22,7 @@ export default class Input extends Component {
 
     return (
       <div>
-        <label htmlFor={this.props.input.name}>
+        <label className="form-label" htmlFor={this.props.input.name}>
           {this.props.label}
           {error}
           {warning}

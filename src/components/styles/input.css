@@ -6,7 +6,10 @@
   margin: 0.5em 0;
   padding: 0 10px;
   font-size: 1em;
+}
 
+.form-label {
+  text-align: left;
 }
 
 label {

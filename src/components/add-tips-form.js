@@ -37,11 +37,11 @@ export class AddTipsForm extends Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
           <Field label="Date" component={Input} type="date" name="date"/>
-          <Field label="Total Tips" component={Input} type="text" name="totalTips"/>
+          <Field label="Total Tips" component={Input} type="number" name="totalTips"/>
           <Field 
             label="Tipped Out"
             component={Input} 
-            type="text"
+            type="number"
             id="tippedOut"
             name="tippedOut"
             validate={[required, isNumber]}
@@ -49,7 +49,7 @@ export class AddTipsForm extends Component {
           <Field 
             label="Hourly Wage"
             component={Input} 
-            type="baseWage" 
+            type="number" 
             id="baseWage"
             name="baseWage"
             validate={[isNumber]}
@@ -57,12 +57,13 @@ export class AddTipsForm extends Component {
           <Field
             label="Total Hours"
             component={Input}
-            type="hours"
+            type="number"
             name="hours"
             validate={[required, isNumber]}
           />
-          <label htmlFor="notes">Notes</label>
+          <label className="form-label notes-label" htmlFor="notes">Notes</label>
           <Field
+            className="notes"
             component="textarea"
             type="notes"
             name="notes"
