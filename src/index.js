@@ -6,7 +6,12 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { authSucess } from './actions/auth';
+const authToken = localStorage.getItem('authToken');
 
+if (authToken) {
+  store.dispatch(authSucess(authToken))
+}
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import Blurb from '../blurb'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import Blurb from '../blurb';
 
-export default class LandingPage extends Component {
+export class LandingPage extends Component {
   render() {
+
+    if (this.props.loggedIn) {
+      return <Redirect to="/dashboard" /> 
+    }
     return (
       <div>
         <Blurb />
@@ -10,3 +16,9 @@ export default class LandingPage extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.authToken
+})
+
+export default connect(mapStateToProps)(LandingPage);

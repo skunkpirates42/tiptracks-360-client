@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import DashControls from '../dash-controls';
 import { fetchJobs } from '../../actions/jobs'
+import Onboard from './onboard';
 
 export class Dashboard extends Component {
   componentDidMount() {
@@ -10,12 +11,17 @@ export class Dashboard extends Component {
   }
 
   render() {
-    console.log(this.props.jobs);
+    const { jobs, username } = this.props
+    console.log(jobs);
+    
+    if (!jobs.length) {
+     return <Onboard />
+    }
     
     return (
       <div className="dashboard">
         <div className="dashboard-username">
-          <h2>Hello {this.props.username}</h2>
+          <h2>Hello {username}</h2>
         </div>
         <DashControls />
       </div>

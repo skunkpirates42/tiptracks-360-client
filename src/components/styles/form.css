@@ -9,8 +9,8 @@
 }
 
 .form-container {
-  height: 455px;
-  width: 400px;
+  max-height: 455px;
+  max-width: 400px;
   padding: 20px 30px;
   margin: 0 auto;
   /* background-color: rgba(250, 250, 250, 0.81);

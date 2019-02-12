@@ -22,9 +22,10 @@ export const authRequest = () => ({
 });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSucess = currentUser => ({
+export const authSucess = (authToken) => ({
   type: AUTH_SUCCESS,
-  currentUser
+  currentUser: jwtDecode(authToken).user,
+  authToken
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
@@ -36,9 +37,9 @@ export const authError = error => ({
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
-  const decodedToken = jwtDecode(authToken);
-  dispatch(setAuthToken(authToken));
-  dispatch(authSucess(decodedToken.user));
+  // const decodedToken = jwtDecode(authToken);
+  // dispatch(setAuthToken(authToken));
+  dispatch(authSucess(authToken));
   localStorage.setItem('authToken', authToken);
 }
 

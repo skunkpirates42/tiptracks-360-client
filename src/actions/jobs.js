@@ -30,8 +30,7 @@ export const saveJob = newJob => (dispatch, getState) => {
       },
       body: JSON.stringify(newJob)
     })
-      .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())     
+      .then(res => normalizeResponseErrors(res))   
       .catch(err => {
         console.error(err.message);
         return Promise.reject(

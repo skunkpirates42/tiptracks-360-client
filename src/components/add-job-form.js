@@ -4,7 +4,7 @@ import BackArrow from './back-arrow'
 import requiresLogin from './containers/requires-login';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
-import { saveJob } from '../actions/jobs';
+import { saveJob, fetchJobs } from '../actions/jobs';
 import { required, isNumber } from '../validators';
 import './styles/add-tips-form.css'
 
@@ -14,6 +14,7 @@ export class AddJobForm extends Component {
     const { dispatch } = this.props;
     const newJob = { job, position, baseWage };
     return dispatch(saveJob(newJob))
+            .then(() => dispatch(fetchJobs()))
 }
 
   render() {
@@ -42,7 +43,7 @@ export class AddJobForm extends Component {
           <Field 
             label="Hourly Wage"
             component={Input} 
-            type="baseWage" 
+            type="number" 
             id="baseWage"
             name="baseWage"
             validate={[isNumber, required]}

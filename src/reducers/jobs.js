@@ -16,6 +16,7 @@ export const jobsReducer = (state = initialState, action) => {
       loading: true
     }
   } else if (action.type === FETCH_JOBS_DATA_SUCCESS) {
+    
     return {
       ...state,
       loading: false,

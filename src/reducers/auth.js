@@ -14,12 +14,7 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
-  if (action.type === SET_AUTH_TOKEN) {
-    return {
-      ...state,
-      authToken: action.authToken
-    }
-  } else if (action.type === CLEAR_AUTH) {
+ if (action.type === CLEAR_AUTH) {
     return {
       ...state,
       authToken: null,
@@ -35,6 +30,7 @@ export const authReducer = (state = initialState, action) => {
     return {
       ...state,
       currentUser: action.currentUser,
+      authToken: action.authToken,
       loading: false
     }
   } else if (action.type === AUTH_ERROR) {
