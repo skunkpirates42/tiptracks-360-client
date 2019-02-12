@@ -50,7 +50,7 @@ export class RegistrationForm extends Component {
           />
           <button className="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Register</button>
         </form>
-        <Link to="/">Login</Link>
+        <span className="register">Already have an account?</span><Link to="/">Login</Link>
       </div>
     )
   } 
