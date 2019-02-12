@@ -8,6 +8,7 @@ import StatsPage from './stats-page';
 import AddTipsForm from '../add-tips-form';
 import AddJobForm from '../add-job-form';
 import HeaderBar from '../header-bar';
+import LandingPage from './landing-page';
 import { refreshAuthToken } from '../../actions/auth';
 import '../styles/App.css';
 
@@ -51,7 +52,8 @@ class App extends Component {
       <div className="App">
         <HeaderBar />
         <Switch>
-          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/stats" component={StatsPage} />
