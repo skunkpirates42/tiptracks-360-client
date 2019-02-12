@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 
 import LoginForm from '../login-form';
 
-export class LandingPage extends React.Component {
+export class LoginPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -42,4 +42,4 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(LandingPage);
+export default connect(mapStateToProps)(LoginPage);
