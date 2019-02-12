@@ -1,6 +1,7 @@
 .app-header {
   border-bottom: 1px solid black;
   margin: 0 0 20px 0;
+  padding: 15px 10px 0px;
   background-color: rgb(117, 30, 205);
   color: rgb(235, 225, 218);
 }

@@ -1,6 +1,6 @@
 .form-input {
   height: 2em;
-  width: 94.5%;
+  width: 92.67%;
   border-radius: 0.25em;
   border: 1px solid black;
   margin: 0.5em 0;
@@ -11,4 +11,10 @@
 
 label {
   display: block;
+}
+
+@media (min-width: 600px) {
+  .form-input {
+    width: 94.5%;
+  }
 }

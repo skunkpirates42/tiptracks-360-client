@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Blurb from '../blurb';
+import '../styles/landing-page.css';
 
 export class LandingPage extends Component {
   render() {
@@ -10,7 +11,7 @@ export class LandingPage extends Component {
       return <Redirect to="/dashboard" /> 
     }
     return (
-      <div>
+      <div className="landing">
         <Blurb />
       </div>
     )

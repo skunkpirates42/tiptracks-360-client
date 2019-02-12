@@ -1,5 +1,4 @@
-import { 
-  SET_AUTH_TOKEN, 
+import {
   CLEAR_AUTH, 
   AUTH_REQUEST, 
   AUTH_SUCCESS, 
