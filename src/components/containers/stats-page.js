@@ -6,6 +6,7 @@ import Card from '../card';
 import Controls from '../controls';
 import BackArrow from '../back-arrow';
 import moment from 'moment';
+import {stats} from '../../utils/stats';
 
 export class StatsPage extends Component {
   state = {
@@ -14,6 +15,7 @@ export class StatsPage extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchTipsData())
+    stats.testFunc();
   }
 
   setView(view) {
@@ -34,6 +36,13 @@ export class StatsPage extends Component {
     } 
 
     return totalTips - tippedOut;
+  }
+
+  calcTotalPay(takeHomeTips, hours, baseWage) {
+    takeHomeTips = Number(takeHomeTips);
+    hours = Number(hours);
+    baseWage = Number(baseWage);
+    return (hours * baseWage) + takeHomeTips
   }
 
   calcHourlyRate (takeHomeTips, hours, baseWage) {
@@ -71,6 +80,7 @@ export class StatsPage extends Component {
       const yearAndWeek = `${year}-${weekOfYear}`;
       const takeHomeTips = this.calcTakeHomeTips(tip.totalTips, tip.tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, tip.hours, tip.baseWage);
+      const takeHomePay = this.calcTotalPay(takeHomeTips, tip.hours, tip.baseWage)
       const monthlyFormatted = `Month of ${this.genereteFormattedDate(tip.date, 'MMMM YYYY')}`;
       const weeklyFormatted = `Week of ${firstDayOfWeek}`;
       
@@ -79,6 +89,7 @@ export class StatsPage extends Component {
         weeklyTips[yearAndWeek].wages.push(hourlyRate);
         weeklyTips[yearAndWeek].avgWage = this.calcAvgHourlyRate(weeklyTips[yearAndWeek].wages);
         weeklyTips[yearAndWeek].hours += Number(tip.hours)
+        weeklyTips[yearAndWeek].takeHomePay += takeHomePay;
 
       } else {
         weeklyTips[yearAndWeek] = {
@@ -86,7 +97,8 @@ export class StatsPage extends Component {
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
-          hours: Number(tip.hours)
+          hours: Number(tip.hours),
+          takeHomePay
         };
       }
 
@@ -95,15 +107,17 @@ export class StatsPage extends Component {
         monthlyTips[monthAndYear].wages.push(hourlyRate);
         monthlyTips[monthAndYear].avgWage = this.calcAvgHourlyRate(monthlyTips[monthAndYear].wages);
         monthlyTips[monthAndYear].hours += Number(tip.hours);
+        monthlyTips[monthAndYear].takeHomePay += takeHomePay;
       } else {
         monthlyTips[monthAndYear] = {
           formattedDate: monthlyFormatted,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
-          hours: Number(tip.hours)
+          hours: Number(tip.hours),
+          takeHomePay
         };
-      }
+      } 
     }
     console.log(weeklyTips);
     
@@ -113,7 +127,8 @@ export class StatsPage extends Component {
       const formattedDate = this.genereteFormattedDate(date, 'dddd, MMMM Do YYYY');
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
-      const stats = { formattedDate, hourlyRate, notes, hours, takeHomeTips, id };
+      const takeHomePay = this.calcTotalPay(takeHomeTips, hours, baseWage);
+      const stats = { formattedDate, hourlyRate, notes, hours, takeHomeTips, takeHomePay ,id };
 
       return (
         <Card

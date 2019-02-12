@@ -11,6 +11,7 @@ export function Card(props) {
       <li className="tip-report">
         <p><span>{props.formattedDate}</span></p>
         <p>Take Home Tips: <span>{props.totalTips || props.takeHomeTips}</span></p>
+        {/* Maybe have this in expanded view ?<p>Total Pay: <span>{props.takeHomePay}</span></p> */}
         <p>Total Hours: <span>{props.hours}</span></p>
         <p>{props.hourlyType}: <span>${(props.hourlyRate || props.avgWage).toFixed(2)} / hr</span></p>
         {props.notes && <p className="notes">Notes: {props.notes}</p>}
