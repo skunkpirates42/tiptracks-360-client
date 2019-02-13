@@ -12,7 +12,7 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const { jobs, /* username, */ loading } = this.props
+    const { jobs, username, loading } = this.props
     console.log(jobs);
     console.log(loading);
     
@@ -28,7 +28,7 @@ export class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="dashboard-username">
-          <h2>Hello {this.props.username}</h2>
+          <h2>Hello {username}</h2>
           <h3>What would you like to do?</h3>
         </div>
         <DashControls />
