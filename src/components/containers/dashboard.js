@@ -22,6 +22,7 @@ export class Dashboard extends Component {
       <div className="dashboard">
         <div className="dashboard-username">
           <h2>Hello {username}</h2>
+          <h3>What would you like to do?</h3>
         </div>
         <DashControls />
       </div>

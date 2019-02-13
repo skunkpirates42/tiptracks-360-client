@@ -167,7 +167,8 @@ export class StatsPage extends Component {
       <div>
         <BackArrow to="/dashboard" pull="left" />
         <h2>Stats for {this.props.username}</h2>
-        <Controls setView={(view) => this.setView(view)}/>
+        <h3>Toggle time period</h3> 
+        <Controls view={this.state.view} setView={(view) => this.setView(view)}/>
         <ul className="card-container">
          {tipsView}
         </ul>
