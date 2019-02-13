@@ -14,8 +14,8 @@ import '../styles/App.css';
 
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTrashAlt, faDollarSign, faPlus, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-library.add(faTrashAlt, faDollarSign, faPlus, faArrowLeft)
+import { faTrashAlt, faDollarSign, faPlus, faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons'
+library.add(faTrashAlt, faDollarSign, faPlus, faArrowLeft, faSpinner)
 
 class App extends Component {
   componentDidUpdate(prevProps) {

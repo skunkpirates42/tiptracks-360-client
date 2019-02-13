@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import DashControls from '../dash-controls';
 import { fetchJobs } from '../../actions/jobs'
 import Onboard from './onboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class Dashboard extends Component {
   componentDidMount() {
@@ -11,11 +12,17 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const { jobs, username } = this.props
+    const { jobs, username, loading } = this.props
     console.log(jobs);
+    console.log(loading);
+    
     
     if (!jobs.length) {
      return <Onboard />
+    }
+
+    if (loading) {
+      return <FontAwesomeIcon icon="spinner" />
     }
     
     return (
@@ -32,12 +39,13 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  const { jobs } = state.jobs;
+  const { jobs, loading } = state.jobs;
 
   return {
     username: currentUser.username,
     name: currentUser.fullName,
-    jobs: jobs
+    jobs: jobs,
+    loading
   };
 }
 
