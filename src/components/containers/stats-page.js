@@ -73,7 +73,7 @@ export class StatsPage extends Component {
     const monthlyTips = {};
   
     for (let tip of this.props.tips) {
-      const firstDayOfWeek = moment(tip.date).weekday(0).format('MMMM Do YYYY')
+      const firstDayOfWeek = moment(tip.date).weekday(0).format('MMM Do YY')
       const weekOfYear = moment(tip.date).week();
       const year = moment(tip.date).year();
       const month = moment(tip.date).month();
@@ -82,7 +82,7 @@ export class StatsPage extends Component {
       const takeHomeTips = this.calcTakeHomeTips(tip.totalTips, tip.tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, tip.hours, tip.baseWage);
       const takeHomePay = this.calcTotalPay(takeHomeTips, tip.hours, tip.baseWage)
-      const monthlyFormatted = `Month of ${this.genereteFormattedDate(tip.date, 'MMMM YYYY')}`;
+      const monthlyFormatted = `Month of ${this.genereteFormattedDate(tip.date, 'MMM YY')}`;
       const weeklyFormatted = `Week of ${firstDayOfWeek}`;
       
       if (yearAndWeek in weeklyTips) {
@@ -125,7 +125,7 @@ export class StatsPage extends Component {
 
     const daily = this.props.tips.map((tip) => {
       const { totalTips, tippedOut, hours, notes, baseWage, date, id } = tip
-      const formattedDate = this.genereteFormattedDate(date, 'dddd, MMMM Do YYYY');
+      const formattedDate = this.genereteFormattedDate(date, 'ddd, MMM Do YY');
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
       const takeHomePay = this.calcTotalPay(takeHomeTips, hours, baseWage);
@@ -142,7 +142,7 @@ export class StatsPage extends Component {
       const weekly = weeklyTips[week];
       return (
         <Card 
-          key={week} hourlyType="Average Hourly Rate" {...weekly}
+          key={week} hourlyType="Avg Hourly Rate" {...weekly}
         />
     )});
 
@@ -150,7 +150,7 @@ export class StatsPage extends Component {
       const monthly = monthlyTips[month];
       return (
        <Card
-          key={month} hourlyType="Average Hourly Rate" {...monthly}
+          key={month} hourlyType="Avg Hourly Rate" {...monthly}
         />
     )});
 

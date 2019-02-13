@@ -14,7 +14,7 @@ export class LoginForm extends Component {
   }
 
   render() {
-    const { pristine, submitting } = this.props
+    const { pristine, submitting, handleSubmit } = this.props
     let error;
     // Set error to be a div that displays the error passed in from redux-form's props 
     if (this.props.error) {
@@ -29,7 +29,7 @@ export class LoginForm extends Component {
       <div className="form-container">
         <form 
           className="login" 
-          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+          onSubmit={handleSubmit(values => this.onSubmit(values))}>
           {error}
           <Field 
             label="Username"

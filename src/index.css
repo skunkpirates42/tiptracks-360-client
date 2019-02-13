@@ -38,3 +38,9 @@ button {
 ul {
   padding: 0;
 }
+
+.validate {
+  font-weight: 300;
+  font-style: italic;
+  color: rgb(203, 68, 68);
+}

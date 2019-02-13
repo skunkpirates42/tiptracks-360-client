@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
+
 .app-header {
   border-bottom: 1px solid black;
   margin: 0 0 20px 0;
   padding: 15px 10px 0px;
-  background-color: rgb(117, 30, 205);
+  background-color: rgb(120, 91, 148);
   color: rgb(235, 225, 218);
+  font-weight: 700;
+  font-size: 1.5em;
+  font-family: 'Amatic SC', cursive;
+
 }
 
 .logout {
