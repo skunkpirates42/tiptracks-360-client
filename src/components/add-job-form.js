@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Input from './input';
 import requiresLogin from './containers/requires-login';
 import { Redirect } from 'react-router-dom';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import { saveJob, fetchJobs } from '../actions/jobs';
 import { required, isNumber } from '../validators';
 import './styles/add-tips-form.css'
@@ -59,5 +59,8 @@ export class AddJobForm extends Component {
 export default requiresLogin()(reduxForm({
   form: 'addJob',
   onSubmitFail: (errors, dispatch) =>
-      dispatch(focus('addJob', Object.keys(errors)[0]))
+      dispatch(focus('addJob', Object.keys(errors)[0])),
+  onSubmitSuccess: (result, dispatch) => {
+    setTimeout(() => dispatch(reset('addJob')), 1000)
+  } 
 })(AddJobForm));

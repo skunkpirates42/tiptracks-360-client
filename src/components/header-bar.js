@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {clearAuth} from '../actions/auth';
+import { clearJobs } from '../actions/jobs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './styles/header-bar.css';
 
 export class HeaderBar extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth());
+    this.props.dispatch(clearJobs());
     localStorage.removeItem('authToken');
   }
 

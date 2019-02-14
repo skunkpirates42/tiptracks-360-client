@@ -1,6 +1,6 @@
 import { 
   FETCH_JOBS_DATA_SUCCESS, FETCH_JOBS_DATA_ERROR, 
-  FETCH_JOBS_DATA_REQUEST,  
+  FETCH_JOBS_DATA_REQUEST, CLEAR_JOBS
 } from  '../actions/jobs'
 
 const initialState = {
@@ -28,6 +28,11 @@ export const jobsReducer = (state = initialState, action) => {
         loading: false,
         errror: action.error
       }
+  } else if (action.type === CLEAR_JOBS) {
+    return {
+      ...state,
+      jobs: []
+    }
   }
   return state;
 }

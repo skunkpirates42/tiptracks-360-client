@@ -19,6 +19,11 @@ export const fetchJobsDataError = (error) => ({
   error
 });
 
+export const CLEAR_JOBS = 'CLEAR_JOBS';
+export const clearJobs = () => ({
+  type: CLEAR_JOBS
+}
+)
 export const saveJob = newJob => (dispatch, getState) => {
   const authToken = getAuthToken(getState);
   return (
