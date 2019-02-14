@@ -1,3 +1,14 @@
+# Welcome to Tip Tracks 360 - View the Deployed App [here](https://tips-app-client.herokuapp.com/)
+### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings.
+
+...screenshots will eventually go here that describe user flow and what not...
+
+## Technology Stack
+This project is a full-stack JavaScript app that utilizes the "MERN" stack. On the backend, I utilize MongoDB for data 
+persistence, and the Express framework to create my server. On the frontend, I am using React. The frontend also uses
+Redux for state management, Redux Form to easily connect my forms into the Redux store and React Router to give my single page
+app a multi-page feel.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
