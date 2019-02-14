@@ -19,6 +19,7 @@
 .card-info {
   display: flex;
   justify-content: space-between;
+  /* max-height: 2em; */
 }
  .card-key {
    font-weight: 500;
@@ -28,6 +29,12 @@
  .card-value {
    font-weight: 500;
  }
+ .note-value {
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .fas {
   cursor: pointer;

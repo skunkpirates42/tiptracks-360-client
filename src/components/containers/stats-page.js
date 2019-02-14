@@ -168,7 +168,10 @@ export class StatsPage extends Component {
         <BackArrow to="/dashboard" pull="left" />
         <h2>Stats for {this.props.username}</h2>
         <h3>Toggle time period</h3> 
-        <Controls view={this.state.view} setView={(view) => this.setView(view)}/>
+        <Controls 
+          view={this.state.view}
+          setView={(view) => this.setView(view)}
+        />
         <ul className="card-container">
          {tipsView}
         </ul>
