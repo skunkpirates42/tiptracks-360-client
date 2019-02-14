@@ -9,11 +9,18 @@
   font-weight: 700;
   font-size: 1.5em;
   font-family: 'Amatic SC', cursive;
-
+  max-height: 200px;
 }
 
 .logout {
   margin-bottom: 5px;
+  position: absolute;
+  right: 5px;
+  top: 175px;
+}
+
+.slogan {
+  margin: 0;
 }
 
 .dollar {
@@ -27,5 +34,8 @@ h1 {
 @media (min-width: 600px) {
   .dollar {
     margin: 0 2em
+  }
+  .logout {
+    position: static;
   }
 }
