@@ -37,7 +37,7 @@ export class Card extends Component {
           }
   
           <div className="stats-date-container">
-            <span className="stats-date">{`${formattedDate}\``}</span>
+            <span className="stats-date">{`${formattedDate}`}</span>
           </div>
           <div className="stats">
             <p className="card-info">
@@ -54,9 +54,12 @@ export class Card extends Component {
               <span className="card-value">${(hourlyRate || avgWage).toFixed(2)} / hr</span>
             </p>
             {
-              notes && <p className="card-info">
+              // using the title attribute below so that if a note is too long, (im using elipsis in CSS)
+              // you can see the contents of the note if the user hovers over it. Eventually would like this 
+              // to be a feture of the expanded card view
+              notes && <p title={notes} aria-label={notes} className="card-info">
                 <span className="card-key">Notes:</span>
-                <span className="card-value note-value">{notes}</span>
+                <span title={notes} className="card-value note-value">{notes}</span>
               </p>
             }
             {/* <FontAwesomeIcon className="fas plus" pull="left" icon="plus" /> */}
