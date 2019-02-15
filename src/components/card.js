@@ -18,13 +18,13 @@ export class Card extends Component {
     const { 
       id, dispatch, formattedDate, totalTips,
       takeHomeTips, hours, hourlyType, hourlyRate, 
-      avgWage, notes
+      avgWage, notes, job
     } = this.props
 
     return (
       <div className="card">
         <li className="tip-report">
-          {
+          { // "Are you sure" Delete modal
             id && this.state.isDeleting 
             ? 
             <div className="modal">
@@ -40,6 +40,10 @@ export class Card extends Component {
             <span className="stats-date">{`${formattedDate}`}</span>
           </div>
           <div className="stats">
+            <p className="card-info">
+              <span className="card-key">Job:</span>
+              <span className="card-value">{job.job || job}</span>
+            </p>
             <p className="card-info">
               <span className="card-key">Take Home Tips:</span>
               <span className="card-value">{totalTips || takeHomeTips}</span>

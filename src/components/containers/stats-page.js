@@ -23,6 +23,7 @@ export class StatsPage extends Component {
     this.setState({ view })
   }
 
+  // Plan to move logic from line 27 to line ~130 to seperate file(utils/stats)
   genereteFormattedDate(date, format) {
     return moment(date).format(format);
   }
@@ -95,6 +96,7 @@ export class StatsPage extends Component {
       } else {
         weeklyTips[yearAndWeek] = {
           formattedDate: weeklyFormatted,
+          job: tip.job.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -112,6 +114,7 @@ export class StatsPage extends Component {
       } else {
         monthlyTips[monthAndYear] = {
           formattedDate: monthlyFormatted,
+          job: tip.job.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -124,12 +127,12 @@ export class StatsPage extends Component {
     
 
     const daily = this.props.tips.map((tip) => {
-      const { totalTips, tippedOut, hours, notes, baseWage, date, id } = tip
+      const { totalTips, tippedOut, hours, notes, baseWage, date, id, job } = tip
       const formattedDate = this.genereteFormattedDate(date, 'ddd, MMM Do \'YY');
       const takeHomeTips = this.calcTakeHomeTips(totalTips, tippedOut);
       const hourlyRate = this.calcHourlyRate(takeHomeTips, hours, baseWage);
       const takeHomePay = this.calcTotalPay(takeHomeTips, hours, baseWage);
-      const stats = { formattedDate, hourlyRate, notes, hours, takeHomeTips, takeHomePay ,id };
+      const stats = { formattedDate, hourlyRate, notes, hours, takeHomeTips, takeHomePay ,id, job };
 
       return (
         <Card
