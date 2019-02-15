@@ -51,15 +51,18 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderBar />
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/register" component={RegistrationPage} />
-          <Route exact path="/stats" component={StatsPage} />
-          <Route exact path="/add-tips" component={() => <AddTipsForm />} />
-          <Route exact path="/add-job" component={() => <AddJobForm />} />
-        </Switch>
+        <main role="main">
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/register" component={RegistrationPage} />
+            <Route exact path="/stats" component={StatsPage} />
+            <Route exact path="/add-tips" component={() => <AddTipsForm />} />
+            <Route exact path="/add-job" component={() => <AddJobForm />} />
+          </Switch>
+        </main>
+        
       </div>
     );
   }

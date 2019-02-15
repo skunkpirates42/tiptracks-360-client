@@ -22,7 +22,7 @@ export class Card extends Component {
     } = this.props
 
     return (
-      <div className="card">
+      <div className="card" role="list">
         <li className="tip-report">
           { // "Are you sure" Delete modal
             id && this.state.isDeleting 

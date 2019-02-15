@@ -63,6 +63,7 @@ export class AddTipsForm extends Component {
           />
           <label className="form-label notes-label" htmlFor="notes">Notes</label>
           <Field
+            aria-label="textbox"
             className="notes"
             component="textarea"
             type="notes"

@@ -22,12 +22,12 @@ export class HeaderBar extends React.Component {
     }
 
     return (
-      <header className="app-header">
+      <header role="banner" className="app-header">
         <FontAwesomeIcon icon="dollar-sign"  className="dollar" pull="left" size="3x"/> 
         <FontAwesomeIcon icon="dollar-sign"  className="dollar" pull="right" size="3x"/> 
 
         <h1>Tiptracks 360</h1>
-        <h3 className="slogan">Giving you all around insight into your tips</h3>
+        <h2 className="slogan">Giving you all around insight into your tips</h2>
         { logOutButton }
       </header>
     );
