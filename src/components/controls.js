@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/controls.css';
 
 export default function Controls(props) {
-  console.log(props.view)
   return (
     
     

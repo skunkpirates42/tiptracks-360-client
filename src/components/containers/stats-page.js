@@ -6,7 +6,7 @@ import Card from '../card';
 import Controls from '../controls';
 import BackArrow from '../back-arrow';
 import moment from 'moment';
-import {stats} from '../../utils/stats';
+// import {stats} from '../../utils/stats';
 import '../styles/stats-page.css'
 
 export class StatsPage extends Component {
@@ -16,7 +16,7 @@ export class StatsPage extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchTipsData())
-    stats.testFunc();
+    // stats.testFunc();
   }
 
   setView(view) {
@@ -123,7 +123,6 @@ export class StatsPage extends Component {
         };
       } 
     }
-    console.log(weeklyTips);
     
 
     const daily = this.props.tips.map((tip) => {

@@ -13,9 +13,6 @@ export class Dashboard extends Component {
 
   render() {
     const { jobs, loading } = this.props
-    // console.log(jobs);
-    // console.log(loading);
-    
     
     if (!jobs.length) {
      return <Onboard />
