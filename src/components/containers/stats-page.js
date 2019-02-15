@@ -72,6 +72,8 @@ export class StatsPage extends Component {
 
     const weeklyTips = {};
     const monthlyTips = {};
+
+    
   
     for (let tip of this.props.tips) {
       const firstDayOfWeek = moment(tip.date).weekday(0).format('MMM Do \'YY')
@@ -96,7 +98,7 @@ export class StatsPage extends Component {
       } else {
         weeklyTips[yearAndWeek] = {
           formattedDate: weeklyFormatted,
-          job: tip.job.job,
+          job: tip.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -114,7 +116,7 @@ export class StatsPage extends Component {
       } else {
         monthlyTips[monthAndYear] = {
           formattedDate: monthlyFormatted,
-          job: tip.job.job,
+          job: tip.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
