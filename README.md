@@ -33,20 +33,20 @@
 This is a React project that was bootstrapped with Create React App. It also uses Redux for state management. In addition I am utilizing Redx-Form, which helps easily connect my forms into the redux ecosystem and React Router to give my single page app a multi-page feel.
 
 ### Component Heirarchy
- The components in my app are organized something like this 
+ The components in my app are organized something like this<br/>
    App<br/>
-    HeaderBar - This present no matter where you are in the app<br/>
-    Switch(React Router Component)<br/>
-      Landing Page<br/>
-        Links to Registration Page and Login Page<br/>
-      RegistrationPage<br/>
-        If successful register, will Redirect to Dashboard showing AddJobForm<br/>
-      Login Page<br/>
-        If successful login, will Redirect to Dashboard<br/>
-      Dashboard<br/>
-        options to go to AddTipsForm or StatsPage<br/>
-      StatsPage<br/>
-        Cards - These can be toggled to be a daily, weekly or monthly view<br/>
+   &nbsp;&nbsp; HeaderBar - This present no matter where you are in the app<br/>
+   &nbsp;&nbsp; Switch(React Router Component)<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp; Landing Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Links to Registration Page and Login Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp; RegistrationPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If successful register, will Redirect to Dashboard showing AddJobForm<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;Login Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If successful login, will Redirect to Dashboard<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;Dashboard<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options to go to AddTipsForm or StatsPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;StatsPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cards - These can be toggled to be a daily, weekly or monthly view<br/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
