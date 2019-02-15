@@ -3,7 +3,7 @@ import { SubmissionError } from 'redux-form';
 import { normalizeResponseErrors, getAuthToken } from './utils';
 
 export const FETCH_JOBS_DATA_REQUEST = 'FETCH_JOBS_DATA_REQUEST';
-export const fetchTipsDataRequest = () => ({
+export const fetchJobsDataRequest = () => ({
   type: FETCH_JOBS_DATA_REQUEST
 });
  
@@ -48,7 +48,7 @@ export const saveJob = newJob => (dispatch, getState) => {
 }
 
 export const fetchJobs = () => (dispatch, getState) => {
-  dispatch(fetchTipsDataRequest());
+  dispatch(fetchJobsDataRequest());
   const authToken = getAuthToken(getState);
   return fetch(`${API_BASE_URL}/jobs`, {
     method: 'GET',

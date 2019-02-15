@@ -19,14 +19,14 @@ export const jobsReducer = (state = initialState, action) => {
     
     return {
       ...state,
-      loading: false,
+      loading: null,
       jobs: action.jobs
     } 
   } else if (action.type === FETCH_JOBS_DATA_ERROR) {
       return {
         ...state,
-        loading: false,
-        errror: action.error
+        loading: null,
+        error: action.error
       }
   } else if (action.type === CLEAR_JOBS) {
     return {

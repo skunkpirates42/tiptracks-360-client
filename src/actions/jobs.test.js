@@ -1,5 +1,5 @@
 import { 
-  FETCH_JOBS_DATA_REQUEST, fetchTipsDataRequest,
+  FETCH_JOBS_DATA_REQUEST, fetchJobsDataRequest,
   FETCH_JOBS_DATA_SUCCESS, fetchJobsDataSuccess,
   FETCH_JOBS_DATA_ERROR, fetchJobsDataError,
   CLEAR_JOBS, clearJobs,
@@ -8,7 +8,7 @@ import {
 
 describe('fetchTipsDataRequest', () => {
   it('should return the action', () => {
-    const action = fetchTipsDataRequest();
+    const action = fetchJobsDataRequest();
 
     expect(action.type).toEqual(FETCH_JOBS_DATA_REQUEST);
   });

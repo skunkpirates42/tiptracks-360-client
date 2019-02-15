@@ -6,9 +6,7 @@ import {
 const initialState = {
   tips: [],
   error: null,
-  loading: false,
-  daily: {},
-  weekly: {}
+  loading: false
 };
 
 export const tipsDataReducer = (state = initialState, action) => {
