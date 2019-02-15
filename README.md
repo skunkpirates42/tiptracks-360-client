@@ -34,19 +34,19 @@ This is a React project that was bootstrapped with Create React App. It also use
 
 ### Component Heirarchy
  The components in my app are organized something like this 
-   App
-    HeaderBar - This present no matter where you are in the app
-    Switch(React Router Component)
-      Landing Page
-        Links to Registration Page and Login Page
-      RegistrationPage
-        If successful register, will Redirect to Dashboard showing AddJobForm
-      Login Page
-        If successful login, will Redirect to Dashboard
-      Dashboard
-        options to go to AddTipsForm or StatsPage
-      StatsPage
-        Cards - These can be toggled to be a daily, weekly or monthly view
+   App<br/>
+    HeaderBar - This present no matter where you are in the app<br/>
+    Switch(React Router Component)<br/>
+      Landing Page<br/>
+        Links to Registration Page and Login Page<br/>
+      RegistrationPage<br/>
+        If successful register, will Redirect to Dashboard showing AddJobForm<br/>
+      Login Page<br/>
+        If successful login, will Redirect to Dashboard<br/>
+      Dashboard<br/>
+        options to go to AddTipsForm or StatsPage<br/>
+      StatsPage<br/>
+        Cards - These can be toggled to be a daily, weekly or monthly view<br/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
