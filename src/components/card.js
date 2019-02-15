@@ -68,10 +68,14 @@ export class Card extends Component {
             }
             {/* <FontAwesomeIcon className="fas plus" pull="left" icon="plus" /> */}
             {
-              id && <FontAwesomeIcon 
-                pull="right" className="fas trash"
-                icon="trash-alt" onClick={() => this.setDeleting() /* props.dispatch(deleteTip(props.id)) */}
-              />
+              id && <div>
+                <FontAwesomeIcon 
+                  pull="right" className="fas trash"
+                  icon="trash-alt" onClick={() => this.setDeleting()}
+                />
+                <FontAwesomeIcon className="fas pencil" icon="pencil-alt" onClick={() => console.log('edit')} />
+              </div>
+                
             }
           </div>
         </li>

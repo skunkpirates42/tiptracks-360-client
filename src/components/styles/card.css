@@ -45,6 +45,16 @@
   transition: all .15s ease-in;
 }
 
+.pencil {
+  color: #007BFF;
+  transition: all .15s ease-in;
+}
+
+.pencil:hover {
+  color: rgb(5, 85, 171);
+  transform: scale(1.25);
+}
+
 .trash:hover {
   color: red;
   transform: scale(1.25); 
