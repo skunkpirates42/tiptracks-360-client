@@ -1,13 +1,52 @@
 # Welcome to Tip Tracks 360 - View the Deployed App [here](https://tips-app-client.herokuapp.com/)
-### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings.
+### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings
 
-...screenshots will eventually go here that describe user flow and what not...
+### Landing Page
+![screen shot 2019-02-14 at 1 56 52 pm](https://user-images.githubusercontent.com/34561773/52879107-638cba80-312c-11e9-97ba-2b67887b8a58.png)
+  - This is what the user will see when they first visit my app - if they have an account they can jump straight to login, otherwise, the link to signup will bring them to the registration form.
+### Registration Form
+![screen shot 2019-02-14 at 2 15 53 pm](https://user-images.githubusercontent.com/34561773/52879311-cda55f80-312c-11e9-9a70-30ffe1cfc352.png) 
+   - Registration form with some styled validations
+
+### User Onboard
+![screen shot 2019-02-14 at 2 16 42 pm](https://user-images.githubusercontent.com/34561773/52879371-fa597700-312c-11e9-9051-adc474f2976e.png)
+  - This is my attempt at a user onboarding experience. When a user signs up for the first time, they will be greeted with this page. The user cannot add any tips to their collection, and therefore view them, with out a job first. Once they have entered a job, They will be brought to the dashboard page
+
+### Dashboard
+![screen shot 2019-02-14 at 2 12 56 pm](https://user-images.githubusercontent.com/34561773/52879475-3391e700-312d-11e9-99d9-6d99bf79e118.png)
+
+### Add tips form
+![screen shot 2019-02-14 at 2 13 40 pm](https://user-images.githubusercontent.com/34561773/52879493-42789980-312d-11e9-9ae7-a0b6a2e0ef2c.png)
+  - This form will allow users to add tips to their collection. Once they add a tip they will be able to view it on the stats page. The more tips the user has, the more effective the weekly and monthly views are.
+
+### Stats Page
+#### daily view
+![screen shot 2019-02-14 at 2 14 38 pm](https://user-images.githubusercontent.com/34561773/52879516-56240000-312d-11e9-99d1-0f0917a4ea74.png)
+#### weekly view
+![screen shot 2019-02-14 at 2 14 58 pm](https://user-images.githubusercontent.com/34561773/52879549-6fc54780-312d-11e9-8cdc-480c9084da43.png)
+#### monthly view
+![screen shot 2019-02-14 at 2 15 04 pm](https://user-images.githubusercontent.com/34561773/52879614-91beca00-312d-11e9-98d2-9cdcc7f773d6.png)
+#### are you sure you want to delete "modal"
+![screen shot 2019-02-14 at 2 17 20 pm](https://user-images.githubusercontent.com/34561773/52879635-a1d6a980-312d-11e9-9588-b474b9068bee.png)
 
 ## Technology Stack
-This project is a full-stack JavaScript app that utilizes the "MERN" stack. On the backend, I utilize MongoDB for data 
-persistence, and the Express framework to create my server. On the frontend, I am using React. The frontend also uses
-Redux for state management, Redux Form to easily connect my forms into the Redux store and React Router to give my single page
-app a multi-page feel.
+This is a React project that was bootstrapped with Create React App. It also uses Redux for state management. In addition I am utilizing Redx-Form, which helps easily connect my forms into the redux ecosystem and React Router to give my single page app a multi-page feel.
+
+### Component Heirarchy
+ The components in my app are organized something like this<br/>
+   App<br/>
+   &nbsp;&nbsp; HeaderBar - This present no matter where you are in the app<br/>
+   &nbsp;&nbsp; Switch(React Router Component)<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp; Landing Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Links to Registration Page and Login Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp; RegistrationPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If successful register, will Redirect to Dashboard showing AddJobForm<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;Login Page<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If successful login, will Redirect to Dashboard<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;Dashboard<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options to go to AddTipsForm or StatsPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;StatsPage<br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cards - These can be toggled to be a daily, weekly or monthly view<br/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
