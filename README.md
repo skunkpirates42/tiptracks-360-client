@@ -1,7 +1,16 @@
 # Welcome to Tip Tracks 360 - View the Deployed App [here](https://tips-app-client.herokuapp.com/)
-### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings.
+### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings
 
-...screenshots will eventually go here that describe user flow and what not...
+### Landing Page
+![screen shot 2019-02-14 at 1 56 52 pm](https://user-images.githubusercontent.com/34561773/52879107-638cba80-312c-11e9-97ba-2b67887b8a58.png)
+
+### Registration Form
+![screen shot 2019-02-14 at 2 15 53 pm](https://user-images.githubusercontent.com/34561773/52879311-cda55f80-312c-11e9-9a70-30ffe1cfc352.png)
+
+### User Onboard
+![screen shot 2019-02-14 at 2 16 42 pm](https://user-images.githubusercontent.com/34561773/52879371-fa597700-312c-11e9-9051-adc474f2976e.png)
+
+
 
 ## Technology Stack
 This project is a full-stack JavaScript app that utilizes the "MERN" stack. On the backend, I utilize MongoDB for data 
