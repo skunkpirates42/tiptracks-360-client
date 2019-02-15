@@ -31,6 +31,7 @@ export class AddTipsForm extends Component {
 
     return (
       <div className="form-container">
+        <h3>Add your tips</h3>
         <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
