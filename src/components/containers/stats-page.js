@@ -72,8 +72,6 @@ export class StatsPage extends Component {
 
     const weeklyTips = {};
     const monthlyTips = {};
-
-    
   
     for (let tip of this.props.tips) {
       const firstDayOfWeek = moment(tip.date).weekday(0).format('MMM Do \'YY')

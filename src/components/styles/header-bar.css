@@ -21,7 +21,7 @@
 
 .slogan {
   margin: 0;
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 .dollar {
@@ -40,3 +40,20 @@ h1 {
     position: static;
   }
 }
+
+@media(min-width: 395px) {
+  .logout {
+    top: 115px;
+  }
+}
+
+@media (max-width: 370px) {
+  .dollar {
+    margin: 0 0.25em;
+  }
+
+  .app-header {
+    height: 200px;
+  }
+}
+
