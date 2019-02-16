@@ -1,6 +1,6 @@
 # Welcome to Tip Tracks 360 - View the Deployed App [here](https://tips-app-client.herokuapp.com/)
 ### This app is great for people in the service industry who earn any part of their income as tips. It will help you keep track of your tips, group your pay into different time periods and provide analytics that give you full insight into your earnings
-
+#### For my evaluator - DEMO ACCOUNT CREDS: bobuser password
 To view information about the backend of this project please visit the Git Hub repository [here](https://github.com/thinkful-ei27/peter-capstone-server/)
 
 ### Landing Page
