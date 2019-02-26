@@ -37,8 +37,8 @@ export class AddTipsForm extends Component {
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
-          <Field label="Date" component={Input} type="date" name="date"/>
-          <Field label="Total Tips" component={Input} type="number" name="totalTips"/>
+          <Field label="Date" component={Input} type="date" name="date" validate={[required]}/>
+          <Field label="Total Tips" component={Input} type="number" name="totalTips" validate={[isNumber, required]}/>
           <Field 
             label="Tipped Out"
             component={Input} 

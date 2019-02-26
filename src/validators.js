@@ -15,4 +15,4 @@ export const matches = field => (value, allValues) =>
   field in allValues && value.trim() === allValues[field].trim()
   ? undefined
   : <div className="validate">Does not match</div>;
-export const isNumber = value => !(isNaN(value)) ? undefined : 'Must be a number';
+export const isNumber = value => !(isNaN(value)) && /^\$?[\d,]+(\.\d*)?$/.test(value) ? undefined : <div className="validate">Must be a number</div>;
