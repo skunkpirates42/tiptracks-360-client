@@ -96,7 +96,7 @@ export class StatsPage extends Component {
       } else {
         weeklyTips[yearAndWeek] = {
           formattedDate: weeklyFormatted,
-          job: tip.job.job,
+          job: tip.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,
@@ -114,7 +114,7 @@ export class StatsPage extends Component {
       } else {
         monthlyTips[monthAndYear] = {
           formattedDate: monthlyFormatted,
-          job: tip.job.job,
+          job: tip.job,
           totalTips: takeHomeTips,
           wages: [hourlyRate],
           avgWage: hourlyRate,

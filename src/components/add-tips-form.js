@@ -31,13 +31,14 @@ export class AddTipsForm extends Component {
 
     return (
       <div className="form-container">
+        <h3>Add your tips</h3>
         <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
-          <Field label="Date" component={Input} type="date" name="date"/>
-          <Field label="Total Tips" component={Input} type="number" name="totalTips"/>
+          <Field label="Date" component={Input} type="date" name="date" validate={[required]}/>
+          <Field label="Total Tips" component={Input} type="number" name="totalTips" validate={[isNumber, required]}/>
           <Field 
             label="Tipped Out"
             component={Input} 

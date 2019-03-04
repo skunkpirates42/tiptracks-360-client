@@ -42,7 +42,7 @@ export class Card extends Component {
           <div className="stats">
             <p className="card-info">
               <span className="card-key">Job:</span>
-              <span className="card-value">{job.job || job}</span>
+              <span className="card-value">{job}</span>
             </p>
             <p className="card-info">
               <span className="card-key">Take Home Tips:</span>
