@@ -47,7 +47,12 @@ export const fetchTipsData = () => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        Promise.reject(res.statusText);
+      }
+      res.json()
+    })
     .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
     .catch(err => dispatch(fetchTipsDataError(err)));
 }
@@ -62,7 +67,12 @@ export const getTipById = (id) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        Promise.reject(res.statusText);
+      }
+      res.json();
+    })
     .then((tips) => dispatch(fetchTipsByIdSuccess(tips)))
     .catch(err => dispatch(fetchTipsDataError(err)));
 }
