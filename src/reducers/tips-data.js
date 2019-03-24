@@ -1,6 +1,6 @@
 import { 
   FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR, 
-  FETCH_TIPS_DATA_REQUEST, DELETE_TIP_SUCCESS 
+  FETCH_TIPS_DATA_REQUEST, UPDATE_TIP_SUCCESS, DELETE_TIP_SUCCESS 
 } from  '../actions/tips'
 
 const initialState = {
@@ -21,6 +21,13 @@ export const tipsDataReducer = (state = initialState, action) => {
       ...state,
       loading: false,
       tips: action.tips
+    }
+  } else if (action.type === UPDATE_TIP_SUCCESS) {
+    return {
+      ...state,
+      tips: [...state.tips, action.updateTip],
+      loading: false,
+      
     }
   } else if (action.type === DELETE_TIP_SUCCESS) {
     const newTips = state.tips.filter(tip => tip.id !== action.id)

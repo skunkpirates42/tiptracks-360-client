@@ -19,12 +19,32 @@ export const fetchTipsDataError = (error) => ({
   error
 });
 
+export const UPDATE_TIP_SUCCESS = 'UPDATE_TIP_SUCCESS';
+export const updateTipSuccess = (updateTip) => ({
+  type: UPDATE_TIP_SUCCESS,
+  updateTip
+});
+
 export const DELETE_TIP_SUCCESS = 'DELETE_TIP_SUCCESS';
 export const deleteTipSuccess = (id) => ({
   type: DELETE_TIP_SUCCESS,
   id
 });
 
+export const fetchTipsData = () => (dispatch, getState) => {
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
+  return fetch(`${API_BASE_URL}/tips/`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as creds
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => res.json())
+    .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
+    .catch(err => dispatch(fetchTipsDataError(err)));
+}
 
 export const saveTips = newReport => (dispatch, getState) => {
   const authToken = getAuthToken(getState);
@@ -50,19 +70,19 @@ export const saveTips = newReport => (dispatch, getState) => {
   );
 } 
 
-export const fetchTipsData = () => (dispatch, getState) => {
-  dispatch(fetchTipsDataRequest());
+export const updateTip = id => (dispatch, getState) => {
+  dispatch(fetchTipsDataRequest())
   const authToken = getAuthToken(getState);
-  return fetch(`${API_BASE_URL}/tips/`, {
-    method: 'GET',
+  return fetch(`${API_BASE_URL}/tips/${id}`, {
+    method: 'PUT',
     headers: {
-      // Provide our auth token as creds
-      Authorization: `Bearer ${authToken}`
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
-    .then(res => res.json())
-    .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
-    .catch(err => dispatch(fetchTipsDataError(err)));
+  .then(res => normalizeResponseErrors(res))
+  .then(updateTip => dispatch(updateTipSuccess(updateTip)))
+  .catch(err => dispatch(fetchTipsDataError(err)))
 }
 
 export const deleteTip = id => (dispatch, getState) => {
@@ -71,7 +91,7 @@ export const deleteTip = id => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/tips/${id}`, {
     method: 'DELETE',
     headers: {
-      'Content-type': 'apllication/json',
+      'Content-type': 'application/json',
       'Authorization': `Bearer ${authToken}`
     }
   })

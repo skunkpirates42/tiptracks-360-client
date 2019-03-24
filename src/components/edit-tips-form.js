@@ -16,8 +16,8 @@ export class EditTipsForm extends Component {
   onSubmit(values) {
     const { date, baseWage, hours, notes, tippedOut, totalTips } = values
     const { dispatch } = this.props;
-    const newReport = { date, baseWage, hours, notes, tippedOut, totalTips }
-    return dispatch(saveTips(newReport));
+    const updateReport = { date, baseWage, hours, notes, tippedOut, totalTips }
+    return dispatch(saveTips(updateReport));
 }
 
   render() {
