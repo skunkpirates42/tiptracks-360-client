@@ -11,10 +11,6 @@
   transition: all .25s ease-in;
 }
 
-.card:hover {
-  box-shadow: 0 17px 50px rgba(0, 0, 0, 0.19), 0 12px 15px rgba(0, 0, 0, 0.24);
-  /* border: 1px solid #eee; */
-}
 
 .card-info {
   display: flex;
@@ -50,15 +46,6 @@
   transition: all .15s ease-in;
 }
 
-.pencil:hover {
-  color: rgb(5, 85, 171);
-  transform: scale(1.25);
-}
-
-.trash:hover {
-  color: red;
-  transform: scale(1.25); 
-}
 
 .plus {
   color: #46A761;
@@ -99,3 +86,18 @@ svg {
     margin: 1em;
   }
 }
+
+@media(hover: hover) and (pointer: fine) {
+  .pencil:hover {
+    color: rgb(5, 85, 171);
+    transform: scale(1.25);
+  }
+  
+  .trash:hover {
+    color: red;
+    transform: scale(1.25); 
+  }
+  .card:hover {
+    box-shadow: 0 17px 50px rgba(0, 0, 0, 0.19), 0 12px 15px rgba(0, 0, 0, 0.24);
+  }
+} 
