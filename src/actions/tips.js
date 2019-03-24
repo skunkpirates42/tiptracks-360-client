@@ -46,6 +46,21 @@ export const fetchTipsData = () => (dispatch, getState) => {
     .catch(err => dispatch(fetchTipsDataError(err)));
 }
 
+export const getTipById = (id) => (dispatch, getState) => {
+  dispatch(fetchTipsDataRequest());
+  const authToken = getAuthToken(getState);
+  return fetch(`${API_BASE_URL}/tips/${id}`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as creds
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => res.json())
+    .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
+    .catch(err => dispatch(fetchTipsDataError(err)));
+}
+
 export const saveTips = newReport => (dispatch, getState) => {
   const authToken = getAuthToken(getState);
   return (

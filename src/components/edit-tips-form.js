@@ -5,14 +5,14 @@ import requiresLogin from './containers/requires-login';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
-import { saveTips } from '../actions/tips';
+import { saveTips, getTipById } from '../actions/tips';
 import { required, isNumber } from '../validators';
 import './styles/add-tips-form.css'
 
 export class EditTipsForm extends Component {
-  // componentDidMount() {
-  //   this.props.dispatch(getJobsById(this.props.match.params.id))
-  // }
+  componentDidMount() {
+    this.props.dispatch(getTipById(this.props.match.params.id))
+  }
 
   onSubmit(values) {
     const { date, baseWage, hours, notes, tippedOut, totalTips } = values
