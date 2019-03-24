@@ -63,7 +63,7 @@ export const getTipById = (id) => (dispatch, getState) => {
     }
   })
     .then(res => res.json())
-    .then((tips) => dispatch(fetchTipsDataSuccess(tips)))
+    .then((tips) => dispatch(fetchTipsByIdSuccess(tips)))
     .catch(err => dispatch(fetchTipsDataError(err)));
 }
 
