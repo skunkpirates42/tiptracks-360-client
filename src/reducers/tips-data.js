@@ -1,5 +1,5 @@
 import { 
-  FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR, 
+  FETCH_TIPS_DATA_SUCCESS, FETCH_TIPS_DATA_ERROR, FETCH_TIPS_BY_ID_SUCCESS,
   FETCH_TIPS_DATA_REQUEST, UPDATE_TIP_SUCCESS, DELETE_TIP_SUCCESS 
 } from  '../actions/tips'
 
@@ -21,6 +21,12 @@ export const tipsDataReducer = (state = initialState, action) => {
       ...state,
       loading: false,
       tips: action.tips
+    }
+  } else if (action.type === FETCH_TIPS_BY_ID_SUCCESS) {
+    return {
+      ...state,
+      loading: false,
+      tips: [...state.tips, action.tip]
     }
   } else if (action.type === UPDATE_TIP_SUCCESS) {
     return {

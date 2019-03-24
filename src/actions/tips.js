@@ -13,6 +13,12 @@ export const fetchTipsDataSuccess = (tips) => ({
   tips
 });
 
+export const FETCH_TIPS_BY_ID_SUCCESS = 'FETCH_TIPS_BY_ID_SUCCESS';
+export const fetchTipsByIdSuccess = (tip) => ({
+  type: FETCH_TIPS_BY_ID_SUCCESS,
+  tip
+});
+
 export const FETCH_TIPS_DATA_ERROR = 'FETCH_TIPS_DATA_ERROR';
 export const fetchTipsDataError = (error) => ({
   type: FETCH_TIPS_DATA_ERROR,
