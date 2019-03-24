@@ -17,15 +17,15 @@ export class AddJobForm extends Component {
 }
 
   render() {
-    const { submitSucceeded, pristine, submitting } = this.props
+    const { submitSucceeded, pristine, submitting, error, handleSubmit } = this.props
     if (submitSucceeded) {
       return <Redirect to="/dashboard" />
     }
 
     let errorMessage;
-    if (this.props.error) {
+    if (error) {
         errorMessage = (
-          <div className="message message-error">{this.props.error}</div>
+          <div className="message message-error">{error}</div>
         );
     }
 
@@ -34,7 +34,7 @@ export class AddJobForm extends Component {
       <div className="form-container">
         <form 
           className="login" 
-          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+          onSubmit={handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
           <Field label="Where do you work?" component={Input} type="text" name="job" validate={[required]}/>
           <Field label="Position" component={Input} type="text" name="position"/>

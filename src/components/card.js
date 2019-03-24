@@ -4,6 +4,7 @@ import './styles/stats-page.css';
 import './styles/card.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { deleteTip } from '../actions/tips';
+import { Link } from 'react-router-dom' 
 
 export class Card extends Component {
   state = {
@@ -73,7 +74,9 @@ export class Card extends Component {
                   pull="right" className="fas trash"
                   icon="trash-alt" onClick={() => this.setDeleting()}
                 />
-                <FontAwesomeIcon className="fas pencil" icon="pencil-alt" onClick={() => console.log('edit')} />
+                <Link to={`/edit/${id}`}>
+                  <FontAwesomeIcon className="fas pencil" icon="pencil-alt" onClick={() => console.log('edit')} />
+                </Link>
               </div>
                 
             }

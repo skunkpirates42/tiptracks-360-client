@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Input from './input';
 import BackArrow from './back-arrow';
 import requiresLogin from './containers/requires-login';
+import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Field, reduxForm, focus, connect } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { saveTips } from '../actions/tips';
 import { required, isNumber } from '../validators';
 import './styles/add-tips-form.css'
@@ -21,15 +22,15 @@ export class EditTipsForm extends Component {
 }
 
   render() {
-    const { submitSucceeded, pristine, submitting } = this.props
+    const { submitSucceeded, pristine, submitting, error, handleSubmit } = this.props
     if (submitSucceeded) {
       return <Redirect to="/stats" />
     }
 
     let errorMessage;
-    if (this.props.error) {
+    if (error) {
         errorMessage = (
-          <div className="message message-error">{this.props.error}</div>
+          <div className="message message-error">{error}</div>
         );
     }
 
@@ -38,7 +39,7 @@ export class EditTipsForm extends Component {
         <BackArrow to="/dashboard" pull="left" />
         <form 
           className="login" 
-          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+          onSubmit={handleSubmit(values => this.onSubmit(values))}>
           {errorMessage}
           <Field label="Date" component={Input} type="date" name="date"/>
           <Field label="Total Tips" component={Input} type="number" name="totalTips"/>

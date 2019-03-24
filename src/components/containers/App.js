@@ -7,6 +7,7 @@ import RegistrationPage from './registration-page';
 import StatsPage from './stats-page';
 import AddTipsForm from '../add-tips-form';
 import AddJobForm from '../add-job-form';
+import EditTipsForm from '../edit-tips-form';
 import HeaderBar from '../header-bar';
 import LandingPage from './landing-page';
 import { refreshAuthToken } from '../../actions/auth';
@@ -60,6 +61,7 @@ class App extends Component {
             <Route exact path="/stats" component={StatsPage} />
             <Route exact path="/add-tips" component={() => <AddTipsForm />} />
             <Route exact path="/add-job" component={() => <AddJobForm />} />
+            <Route exact path="/edit/:id" component={() => <EditTipsForm />} />
           </Switch>
         </main>
         
